@@ -2,7 +2,7 @@
 #include "minunit.h"
 #include "libft.h"
 
-static const char* foostring = "Thisstring";
+//static const char* foostring = "Thisstring";
 
 void test_setup(void) {
 	/* Nothing */	
@@ -124,7 +124,7 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_minus_65_returns_false);
 }
 
-int main(int argc, char *argv[]) {
+int main() {
 	MU_RUN_SUITE(test_suite);
 	MU_REPORT();
 	return MU_EXIT_CODE;
