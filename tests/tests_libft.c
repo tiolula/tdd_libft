@@ -56,6 +56,61 @@ MU_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_
 	mu_assert(memory_position == returned_memory_position, "the returned memory position is not the original one");
 }
 
+MU_TEST_SUITE(test_isalpha_receiving_A_returns_true)
+{
+	//ARRANGE
+	char	input = 'A';
+	int		expected_result = 1024;// it could be any number different from 0
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_isalpha(input);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_isalpha_receiving_char_1_returns_false)
+{
+	//ARRANGE
+	char	input = '1';
+	int		expected_result = 0;// false
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_isalpha(input);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_isalpha_receiving_asterisc_returns_false)
+{
+	//ARRANGE
+	int		input = '*';
+	int		expected_result = 0;// false
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_isalpha(input);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_isalpha_receiving_minus_65_returns_false)
+{
+	//ARRANGE
+	int		input = -65;
+	int		expected_result = 0;// false
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_isalpha(input);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
 
 MU_TEST_SUITE(test_suite) {
 	MU_SUITE_CONFIGURE(&test_setup, &test_teardown);
@@ -63,6 +118,10 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_memset_setting_NUL_in_one_mem_position);
 	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions);
 	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer);
+	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
+	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
+	MU_RUN_TEST(test_isalpha_receiving_asterisc_returns_false);
+	MU_RUN_TEST(test_isalpha_receiving_minus_65_returns_false);
 }
 
 int main(int argc, char *argv[]) {
