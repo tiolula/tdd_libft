@@ -1,5 +1,7 @@
 # libft [![build](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml) [![norminette](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml)
 
+A library I hope someday will be useful to myself.
+
 ## 42 Style
 
 [42](https://en.wikipedia.org/wiki/42_(school)) learning style is not for everyone. In addition to programming in C (that is not something very easy and also not very common), since the beginning you are not allowed to use common libraries like, for example, stdio.h.
