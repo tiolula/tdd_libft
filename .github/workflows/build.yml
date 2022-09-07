@@ -1,14 +1,16 @@
 name: build
 
 on:
-	push:
-		branches: [ main ]
-	jobs:
-		build:
-			runs-on: ubuntu-latest
-			defaults:
-				run:
-					working-directory: ./tests
-			steps:
-				- name: gcc
-					run: gcc -Wall -Werror -Wextra -I ../src ../src/*.c tests_libft.c
+  push:
+    branches:
+    - master
+jobs:
+   build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./tests
+    steps:
+      - name: gcc
+        run: gcc -Wall -Werror -Wextra -I ../src ../src/*.c tests_libft.c
+        
