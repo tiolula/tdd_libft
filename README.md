@@ -16,4 +16,4 @@ Once I already know something about programming, I also decided to tie my legs a
 
 I won't mention I'm also trying to use as much Vim as I can.
 
-Why, god, why? I don't know, but I hope I don't drown. 
+Why, god, why? I don't know, but I hope I don't drown. 🏊🏽
