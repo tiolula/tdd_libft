@@ -1,8 +1,8 @@
 # libft [![build](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml) [![norminette](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml)
 
-42 learning style is not for everyone. In addition to programming in C (that is not something very easy and also not very common), since the beginning you are not allowed to use common libraries like, for example, stdio.h.
+[42](https://en.wikipedia.org/wiki/42_(school)) learning style is not for everyone. In addition to programming in C (that is not something very easy and also not very common), since the beginning you are not allowed to use common libraries like, for example, stdio.h.
 
-Is like swimming in a cold lake with your hands tied. But since you are learning to program, you can untie them by yourself.
+It's like swimming in a cold lake with your hands tied. But since you are learning to program, you can untie them by yourself.
 
 Libft is the beggining of the construction of my own library, wich I hope I'll use until the last project of 42 curriculum.
 
