@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: src
+        working-directory: tests
     steps:
       - uses: actions/checkout@v2
       - name: gcc
-        run: gcc -Wall -Werror -Wextra *.c
+        run: gcc -Wall -Werror -Wextra -I ../src/ ../src/*.c tests_libft.c
         
