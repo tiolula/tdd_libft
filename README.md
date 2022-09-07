@@ -14,8 +14,6 @@ Libft is the beggining of the construction of one's own library, wich I hope wil
 
 Once I already know something about programming, I also decided to tie my legs and develop my Libft fully using TDD (Test Driven Development). On this repo you can see the consequences of that.
 
-## Vim
-
 I won't mention I'm also trying to use as much Vim as I can.
 
 Why, god, why? I don't know, but I hope I don't drown. 🏊🏽
