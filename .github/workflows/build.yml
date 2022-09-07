@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./tests
+        working-directory: tests
     steps:
       - name: gcc
         run: gcc -Wall -Werror -Wextra -I ../src ../src/*.c tests_libft.c
