@@ -6,13 +6,13 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 23:41:52 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/04 23:53:53 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/07 19:01:10 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c<= 'z'))
-		return 1024;
-	return 0;
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1024);
+	return (0);
 }
