@@ -1,2 +1,5 @@
 *.swp
 a.out
+*.o
+*.tests
+*.a
