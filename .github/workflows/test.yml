@@ -12,5 +12,5 @@ jobs:
         working-directory: tests
     steps:
       - uses: actions/checkout@v2
-      - name: gcc
-        run: gcc -Wall -Werror -Wextra -I ../src/ ../src/*.c tests_libft.c && ./a.out
+      - name: make
+        run: make
