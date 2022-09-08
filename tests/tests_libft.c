@@ -24,6 +24,7 @@ MU_TEST(test_memset_setting_NUL_in_one_mem_position){
 
 	//ASSERT
 	mu_assert(*(unsigned char *)memory_position == value_to_set, "memory value should be set to NUL");
+	free(memory_position);
 }
 
 MU_TEST(test_memset_setting_NUL_in_two_mem_positions){
@@ -39,6 +40,7 @@ MU_TEST(test_memset_setting_NUL_in_two_mem_positions){
 	//ASSERT
 	mu_assert(*(unsigned char *)memory_position == value_to_set, "the first memory position value should be set to NUL");
 	mu_assert(*(unsigned char *)(memory_position + 1) == value_to_set, "the second memory position value should be set to NUL");
+	free(memory_position);
 }
 
 MU_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer){
@@ -54,6 +56,7 @@ MU_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_
 
 	//ASSERT
 	mu_assert(memory_position == returned_memory_position, "the returned memory position is not the original one");
+	free(memory_position);
 }
 
 MU_TEST_SUITE(test_isalpha_receiving_A_returns_true)

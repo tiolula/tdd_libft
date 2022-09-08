@@ -10,6 +10,12 @@ test:		build
 			@cc ${CFLAGS} -o ${TESTPROGRAM} -I . -I ${SRCDIR} ${TESTFILE} -L. -lft
 			@./${TESTPROGRAM}
 
+leak:		test
+			valgrind ./${TESTPROGRAM}
+
+leakfull:	test
+			valgrind --leak-check=full ./${TESTPROGRAM}
+
 build:		${NAME}
 
 ${NAME}:	${OBJS}
