@@ -24,7 +24,7 @@ MU_TEST(test_memset_setting_NUL_in_one_mem_position){
 
 	//ASSERT
 	mu_assert(*(unsigned char *)memory_position == value_to_set, "memory value should be set to NUL");
-	free(memory_position);
+//	free(memory_position);
 }
 
 MU_TEST(test_memset_setting_NUL_in_two_mem_positions){
