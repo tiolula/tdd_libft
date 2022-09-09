@@ -14,6 +14,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install valgrind
         run: |
-          apt-get install valgrind
+          apt-get update
+          sudo apt-get install -y valgrind
       - name: Run valgrind
         run: make leakfull
