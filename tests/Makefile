@@ -11,10 +11,10 @@ test:		build
 			@./${TESTPROGRAM}
 
 leak:		test
-			valgrind --error-exitcode=2 ./${TESTPROGRAM}
+			valgrind --error-exitcode=42 ./${TESTPROGRAM}
 
 leakfull:	test
-			valgrind --error-exitcode=2 --leak-check=full ./${TESTPROGRAM}
+			valgrind --error-exitcode=42 --leak-check=full ./${TESTPROGRAM}
 
 build:		${NAME}
 
