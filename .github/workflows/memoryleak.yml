@@ -11,6 +11,9 @@ jobs:
       run:
         working-directory: tests
     steps:
+      - name: Install dependencies
+        run: |
+          apt-get install valgrind
       - uses: actions/checkout@v2
       - name: make leakfull
         run: make leakfull
