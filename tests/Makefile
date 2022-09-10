@@ -4,7 +4,7 @@ SRCDIR		= ../src/
 NAME		= libft.a
 SRCS		= ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_memset.c ft_strlcpy.c
 OBJS		= ${SRCS:.c=.o}
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		=
 
 test:		build
 			@cc ${CFLAGS} -o ${TESTPROGRAM} -I . -I ${SRCDIR} ${TESTFILE} -L. -lft
