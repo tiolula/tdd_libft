@@ -279,6 +279,76 @@ MU_TEST_SUITE(test_strlcpy_entering_mochida_rapdos_0_do_not_modify_dst_and_retur
 	mu_assert_string_eq(expected_dst, dst);
 }
 
+MU_TEST(test_toupper_entry_x_returns_X)
+{
+	// ARRANGE
+	char c = 'x';
+	char expected_result = 'X';
+	char actual_result;
+
+	// ACT
+	actual_result = ft_toupper(c);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_toupper_entry_a_returns_A)
+{
+	// ARRANGE
+	char c = 'a';
+	char expected_result = 'A';
+	char actual_result;
+
+	// ACT
+	actual_result = ft_toupper(c);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_toupper_entry_A_returns_A)
+{
+	// ARRANGE
+	char c = 'A';
+	char expected_result = 'A';
+	char actual_result;
+
+	// ACT
+	actual_result = ft_toupper(c);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_toupper_entry_asterisc_returns_asterisc)
+{
+	// ARRANGE
+	char c = '*';
+	char expected_result = '*';
+	char actual_result;
+
+	// ACT
+	actual_result = ft_toupper(c);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_toupper_entry_200_returns_200)
+{
+	// ARRANGE
+	char c = 200;
+	char expected_result = 200;
+	char actual_result;
+
+	// ACT
+	actual_result = ft_toupper(c);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -303,6 +373,11 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions);
 	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer);
 	
+	MU_RUN_TEST(test_toupper_entry_x_returns_X);
+	MU_RUN_TEST(test_toupper_entry_a_returns_A);
+	MU_RUN_TEST(test_toupper_entry_A_returns_A);
+	MU_RUN_TEST(test_toupper_entry_asterisc_returns_asterisc);
+	MU_RUN_TEST(test_toupper_entry_200_returns_200);
 }
 
 int main() {

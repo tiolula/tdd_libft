@@ -2,11 +2,11 @@ TESTFILE 	= tests_libft.c
 TESTPROGRAM = libft.tests
 SRCDIR		= ../src/
 NAME		= libft.a
-SRCS		= ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_memset.c ft_strlcpy.c
+SRCS		= ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_memset.c ft_strlcpy.c ft_toupper.c
 OBJS		= ${SRCS:.c=.o}
 CFLAGS		=
 
-test:		build
+test:		fclean build
 			@cc ${CFLAGS} -o ${TESTPROGRAM} -I . -I ${SRCDIR} ${TESTFILE} -L. -lft
 			@./${TESTPROGRAM}
 
@@ -29,6 +29,3 @@ clean:
 
 fclean:		clean
 			rm -f ${NAME} ${TESTPROGRAM}
-
-re:			fclean test
-
