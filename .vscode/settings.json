@@ -1,4 +1,7 @@
 {
 	"42header.username" : "lphelipe",
-	"42header.email": "lphelipe@student.42sp.org.br"
+	"42header.email": "lphelipe@student.42sp.org.br",
+	"editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+	"editor.tabSize": 4
 }
