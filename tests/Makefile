@@ -2,7 +2,7 @@ TESTFILE 	= tests_libft.c
 TESTPROGRAM = libft.tests
 SRCDIR		= ../src/
 NAME		= libft.a
-SRCS		= ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_memset.c
+SRCS		= ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_memset.c ft_strlcpy.c
 OBJS		= ${SRCS:.c=.o}
 CFLAGS		= -Wall -Wextra -Werror
 

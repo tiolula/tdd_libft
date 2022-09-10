@@ -2,16 +2,6 @@
 #include "minunit.h"
 #include "libft.h"
 
-//static const char* foostring = "Thisstring";
-
-void test_setup(void) {
-	/* Nothing */	
-}
-
-void test_teardown(void) {
-	/* Nothing */
-}
-
 MU_TEST(test_memset_setting_NUL_in_one_mem_position){
 	//ARRANGE
 	void*	memory_position = malloc(sizeof(char) * 1);
@@ -185,21 +175,153 @@ MU_TEST_SUITE(test_isalnum_receiving_1_returns_true)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
+MU_TEST_SUITE(test_strlcpy_entering_ai_oi_2_set_dst_as_o_and_returns_2)
+{
+	//ARRANGE
+	char	dst[] = "ai";
+	char	src[] = "oi";
+	int		size = 2;
+	int		expected_result = 2;
+	char	expected_dst[] = "o";
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strlcpy(dst, src, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+	mu_assert_string_eq(expected_dst, dst);
+}
+
+MU_TEST_SUITE(test_strlcpy_entering_ah_oi_3_set_dst_as_oi_and_returns_2)
+{
+	//ARRANGE
+	char	dst[] = "ah";
+	char	src[] = "oi";
+	int		size = 3;
+	int		expected_result = 2;
+	char	expected_dst[] = "oi";
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strlcpy(dst, src, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+	mu_assert_string_eq(expected_dst, dst);
+}
+
+MU_TEST_SUITE(test_strlcpy_entering_papel_boiada_7_set_dst_as_boiada_and_returns_6)
+{
+	//ARRANGE
+	char	dst[] = "papel";
+	char	src[] = "boiada";
+	int		size = 7;
+	int		expected_result = 6;
+	char	expected_dst[] = "boiada";
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strlcpy(dst, src, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+	mu_assert_string_eq(expected_dst, dst);
+}
+
+MU_TEST_SUITE(test_strlcpy_entering_ah_boi_3_set_dst_as_bo_and_returns_3)
+{
+	//ARRANGE
+	char	dst[] = "ah";
+	char	src[] = "boi";
+	int		size = 3;
+	int		expected_result = 3;
+	char	expected_dst[] = "bo";
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strlcpy(dst, src, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+	mu_assert_string_eq(expected_dst, dst);
+}
+
+MU_TEST_SUITE(test_strlcpy_entering_papelada_boiada_9_keep_dst7_as_a)
+{
+	//ARRANGE
+	char	dst[] = "papelada";
+	char	src[] = "boiada";
+	int		size = 9;
+
+	//ACT
+	ft_strlcpy(dst, src, size);
+
+	//ASSERT
+	mu_assert_int_eq('a', dst[7]);
+}
+
+MU_TEST_SUITE(test_strlcpy_entering_lu_la_minus_1_set_dst_as_la_and_returns_2)
+{
+	//ARRANGE
+	char	dst[] = "lu";
+	char	src[] = "la";
+	int		size = -1;
+	int		expected_result = 2;
+	char	expected_dst[] = "la";
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strlcpy(dst, src, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+	mu_assert_string_eq(expected_dst, dst);
+}
+
+MU_TEST_SUITE(test_strlcpy_entering_mochida_rapdos_0_do_not_modify_dst_and_returns_6)
+{
+	//ARRANGE
+	char	dst[] = "mochida";
+	char	src[] = "rapdos";
+	int		size = 0;
+	int		expected_result = 6;
+	char	expected_dst[] = "mochida";
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strlcpy(dst, src, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+	mu_assert_string_eq(expected_dst, dst);
+}
+
 MU_TEST_SUITE(test_suite) {
-	MU_SUITE_CONFIGURE(&test_setup, &test_teardown);
-	
-	MU_RUN_TEST(test_memset_setting_NUL_in_one_mem_position);
-	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions);
-	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer);
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
 	MU_RUN_TEST(test_isalpha_receiving_asterisc_returns_false);
 	MU_RUN_TEST(test_isalpha_receiving_minus_65_returns_false);
+
 	MU_RUN_TEST(test_isdigit_receiving_1_returns_true);
 	MU_RUN_TEST(test_isdigit_receiving_a_returns_false);
+
 	MU_RUN_TEST(test_isalnum_receiving_a_returns_true);
 	MU_RUN_TEST(test_isalnum_receiving_asterisc_returns_false);
 	MU_RUN_TEST(test_isalnum_receiving_1_returns_true);
+
+	MU_RUN_TEST(test_strlcpy_entering_mochida_rapdos_0_do_not_modify_dst_and_returns_6);
+	MU_RUN_TEST(test_strlcpy_entering_lu_la_minus_1_set_dst_as_la_and_returns_2);
+	MU_RUN_TEST(test_strlcpy_entering_papelada_boiada_9_keep_dst7_as_a);
+	MU_RUN_TEST(test_strlcpy_entering_papel_boiada_7_set_dst_as_boiada_and_returns_6);
+	MU_RUN_TEST(test_strlcpy_entering_ah_boi_3_set_dst_as_bo_and_returns_3);
+	MU_RUN_TEST(test_strlcpy_entering_ah_oi_3_set_dst_as_oi_and_returns_2);
+	MU_RUN_TEST(test_strlcpy_entering_ai_oi_2_set_dst_as_o_and_returns_2);
+	
+	MU_RUN_TEST(test_memset_setting_NUL_in_one_mem_position);
+	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions);
+	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer);
+	
 }
 
 int main() {

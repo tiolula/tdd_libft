@@ -17,4 +17,5 @@ void	*ft_memset(void *b, int c, size_t len);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 #endif
