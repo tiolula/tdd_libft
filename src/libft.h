@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 23:37:42 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/07 19:32:35 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/10 22:03:50 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
+void	ft_bzero(void *s, size_t n);
 #endif

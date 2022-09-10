@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 23:41:52 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/10 22:41:05 by lphelipe         ###   ########.fr       */
+/*   Created: 2022/09/10 22:58:06 by lphelipe          #+#    #+#             */
+/*   Updated: 2022/09/10 22:59:37 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include <stdlib.h>
+
+void	ft_bzero(void *s, size_t n)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1024);
-	return (0);
+	unsigned char	*typed_s;
+	size_t			i;
+
+	typed_s = ((unsigned char *)s);
+	i = 0;
+	while (i < n)
+	{
+		typed_s[i] = '\0';
+		i++;
+	}
 }
