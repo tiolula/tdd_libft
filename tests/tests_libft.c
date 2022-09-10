@@ -211,24 +211,6 @@ MU_TEST_SUITE(test_strlcpy_entering_ah_oi_3_set_dst_as_oi_and_returns_2)
 	mu_assert_string_eq(expected_dst, dst);
 }
 
-//MU_TEST_SUITE(test_strlcpy_entering_papel_boiada_7_set_dst_as_boiada_and_returns_6)
-//{
-//	//ARRANGE
-//	char	dst[] = "papel";
-//	char	src[] = "boiada";
-//	int		size = 7;
-//	int		expected_result = 6;
-//	char	expected_dst[] = "boiada";
-//	int		actual_result;
-//
-//	//ACT
-//	actual_result = ft_strlcpy(dst, src, size);
-//
-//	//ASSERT
-//	mu_assert_int_eq(expected_result, actual_result);
-//	mu_assert_string_eq(expected_dst, dst);
-//}
-
 MU_TEST_SUITE(test_strlcpy_entering_ah_boi_3_set_dst_as_bo_and_returns_3)
 {
 	//ARRANGE
@@ -313,11 +295,10 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_strlcpy_entering_mochida_rapdos_0_do_not_modify_dst_and_returns_6);
 	MU_RUN_TEST(test_strlcpy_entering_lu_la_minus_1_set_dst_as_la_and_returns_2);
 	MU_RUN_TEST(test_strlcpy_entering_papelada_boiada_9_keep_dst7_as_a);
-//	MU_RUN_TEST(test_strlcpy_entering_papel_boiada_7_set_dst_as_boiada_and_returns_6);
 	MU_RUN_TEST(test_strlcpy_entering_ah_boi_3_set_dst_as_bo_and_returns_3);
 	MU_RUN_TEST(test_strlcpy_entering_ah_oi_3_set_dst_as_oi_and_returns_2);
 	MU_RUN_TEST(test_strlcpy_entering_ai_oi_2_set_dst_as_o_and_returns_2);
-	
+
 	MU_RUN_TEST(test_memset_setting_NUL_in_one_mem_position);
 	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions);
 	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer);
