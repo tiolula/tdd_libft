@@ -7,7 +7,6 @@ cd tests && \
 make && \
 make leakfull && \
 cd ../src && \
-make && \
 norminette && \
 echo ""  && \
 echo -e "${GREEN}SUCESSO!${NO_COLOR}" 
