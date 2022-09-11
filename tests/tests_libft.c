@@ -55,10 +55,9 @@ MU_TEST(test_memset_setting_1_in_two_mem_positions){
 	// setting a random value (42) to "dirty" it before the test
 	memset(memory_position, 42, 2);
 	int	value_to_set = 1;
-	void*	returned_memory_position;
 	
 	//ACT
-	returned_memory_position = ft_memset(memory_position, value_to_set, 2);
+	ft_memset(memory_position, value_to_set, 2);
 	
 	//ASSERT
 	mu_assert(*(unsigned char *)memory_position == value_to_set, "the first memory position value should be set to 1");
