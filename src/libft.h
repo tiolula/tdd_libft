@@ -12,6 +12,7 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stddef.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 int		ft_isalpha(int c);
