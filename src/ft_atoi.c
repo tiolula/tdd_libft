@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 23:46:56 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/11 01:11:35 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/11 03:10:20 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ int	ft_atoi(const char *c)
 	negative = 1;
 	while (helper_is_space(c[0]))
 		c++;
-	if (c[i] == '-')
+	if (c[i] == '-' || c[i] == '+')
 	{
-		negative = -1;
+		if (c[i] == '-')
+			negative = -1;
 		c++;
 	}
 	while (c[i])
@@ -49,6 +50,5 @@ int	ft_atoi(const char *c)
 		result += (c[i] - 48);
 		i++;
 	}
-	result *= negative;
-	return (result);
+	return (result * negative);
 }
