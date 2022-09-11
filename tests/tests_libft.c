@@ -597,6 +597,95 @@ MU_TEST(test_atoi_entering_MIN_INT_minus_one_char_returns_positive_2147483647_in
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
+MU_TEST(test_atoi_entering_0_char_returns_0_integer)
+{
+	// ARRANGE
+	char *c = "0";
+	int expected_result = 0;
+	int actual_result;
+
+	// ACT
+	actual_result = ft_atoi(c);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_itoa_entering_1_integer_returns_1_string)
+{
+	// ARRANGE
+	int n = 1;
+	char *expected_result = "1";
+	char *actual_result;
+
+	// ACT
+	actual_result = ft_itoa(n);
+
+	// ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST(test_itoa_entering_2_integer_returns_2_string)
+{
+	// ARRANGE
+	int n = 2;
+	char *expected_result = "2";
+	char *actual_result;
+
+	// ACT
+	actual_result = ft_itoa(n);
+
+	// ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST(test_itoa_entering_42_integer_returns_42_string)
+{
+	// ARRANGE
+	int n = 42;
+	char *expected_result = "42";
+	char *actual_result;
+
+	// ACT
+	actual_result = ft_itoa(n);
+
+	// ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST(test_itoa_entering_minus_42_integer_returns_minus_42_string)
+{
+	// ARRANGE
+	int n = -42;
+	char *expected_result = "-42";
+	char *actual_result;
+
+	// ACT
+	actual_result = ft_itoa(n);
+
+	// ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST(test_itoa_entering_0_integer_returns_minus_0_string)
+{
+	// ARRANGE
+	int n = 0;
+	char *expected_result = "0";
+	char *actual_result;
+
+	// ACT
+	actual_result = ft_itoa(n);
+
+	// ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
 
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
@@ -645,6 +734,12 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_atoi_entering_MAX_INT_plus_one_char_returns_minus_2147483648_integer);
 	MU_RUN_TEST(test_atoi_entering_MIN_INT_char_returns_minus_2147483648_integer);
 	MU_RUN_TEST(test_atoi_entering_MIN_INT_minus_one_char_returns_positive_2147483647_integer);
+
+	MU_RUN_TEST(test_itoa_entering_1_integer_returns_1_string);
+	MU_RUN_TEST(test_itoa_entering_2_integer_returns_2_string);
+	MU_RUN_TEST(test_itoa_entering_42_integer_returns_42_string);
+	MU_RUN_TEST(test_itoa_entering_minus_42_integer_returns_minus_42_string);
+	MU_RUN_TEST(test_itoa_entering_0_integer_returns_minus_0_string);
 }
 
 int main() {

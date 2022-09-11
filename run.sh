@@ -5,7 +5,7 @@ NO_COLOR='\033[0m' # No Color
 
 cd tests && \
 make && \
-make leak && \
+make leakfull && \
 cd ../src && \
 make && \
 norminette && \
