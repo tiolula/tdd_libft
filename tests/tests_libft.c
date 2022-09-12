@@ -55,10 +55,9 @@ MU_TEST(test_memset_setting_1_in_two_mem_positions){
 	// setting a random value (42) to "dirty" it before the test
 	memset(memory_position, 42, 2);
 	int	value_to_set = 1;
-	void*	returned_memory_position;
 	
 	//ACT
-	returned_memory_position = ft_memset(memory_position, value_to_set, 2);
+	ft_memset(memory_position, value_to_set, 2);
 	
 	//ASSERT
 	mu_assert(*(unsigned char *)memory_position == value_to_set, "the first memory position value should be set to 1");
@@ -355,9 +354,9 @@ MU_TEST(test_toupper_entry_asterisc_returns_asterisc)
 MU_TEST(test_toupper_entry_200_returns_200)
 {
 	// ARRANGE
-	char c = 200;
-	char expected_result = 200;
-	char actual_result;
+	int c = 200;
+	int expected_result = 200;
+	int actual_result;
 
 	// ACT
 	actual_result = ft_toupper(c);
@@ -760,6 +759,7 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_atoi_entering_minus_minus_1042_char_returns_0_integer);
 	MU_RUN_TEST(test_atoi_entering_1042e2_char_returns_1042_integer);
 	MU_RUN_TEST(test_atoi_entering_MAX_INT_plus_one_char_returns_minus_2147483648_integer);
+	MU_RUN_TEST(test_atoi_entering_MAX_INT_char_returns_2147483647_integer);
 	MU_RUN_TEST(test_atoi_entering_MIN_INT_char_returns_minus_2147483648_integer);
 	MU_RUN_TEST(test_atoi_entering_MIN_INT_minus_one_char_returns_positive_2147483647_integer);
 	MU_RUN_TEST(test_atoi_entering_0_char_returns_0_integer);
