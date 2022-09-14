@@ -6,11 +6,11 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:19:38 by coder             #+#    #+#             */
-/*   Updated: 2022/09/10 23:31:49 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:32:29 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

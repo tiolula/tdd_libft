@@ -6,13 +6,11 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 22:58:06 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/11 01:18:30 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:43:08 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_memset(void *b, int c, size_t len);
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

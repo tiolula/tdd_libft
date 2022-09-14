@@ -867,6 +867,48 @@ MU_TEST(test_isprint_entering_126_returns_true)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
+MU_TEST(test_strlen_entering_abc_returns_3)
+{
+	// ARRANGE
+	char	*s = "abc";
+	int	expected_result = 3;
+	int	actual_result;
+
+	// ACT
+	actual_result = ft_strlen(s);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_strlen_entering_a_returns_1)
+{
+	// ARRANGE
+	char	*s = "a";
+	int	expected_result = 1;
+	int	actual_result;
+
+	// ACT
+	actual_result = ft_strlen(s);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST(test_strlen_entering_empty_string_returns_0)
+{
+	// ARRANGE
+	char	*s = "";
+	int	expected_result = 0;
+	int	actual_result;
+
+	// ACT
+	actual_result = ft_strlen(s);
+
+	// ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -937,6 +979,10 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isprint_entering_tab_returns_false);
 	MU_RUN_TEST(test_isprint_entering_0_returns_false);
 	MU_RUN_TEST(test_isprint_entering_126_returns_true);
+
+	MU_RUN_TEST(test_strlen_entering_abc_returns_3);
+	MU_RUN_TEST(test_strlen_entering_a_returns_1);
+	MU_RUN_TEST(test_strlen_entering_empty_string_returns_0);
 }
 
 int main() {

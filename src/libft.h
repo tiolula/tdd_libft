@@ -6,13 +6,13 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 23:37:42 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/15 01:15:21 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:31:12 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stddef.h>
+# include <stdlib.h>
 
 void	*ft_memset(void *b, int c, size_t len);
 int		ft_isalpha(int c);
@@ -25,4 +25,5 @@ int		ft_atoi(const char *c);
 char	*ft_itoa(int n);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+size_t	ft_strlen(const char *s);
 #endif

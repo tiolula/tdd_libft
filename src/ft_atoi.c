@@ -6,13 +6,13 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 23:46:56 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/12 13:53:53 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:44:03 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c);
+#include "libft.h"
 
-int	helper_is_space(const char c)
+static int	helper_is_space(const char c)
 {
 	if (c == ' '
 		|| c == '\f'

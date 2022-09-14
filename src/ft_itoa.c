@@ -6,16 +6,15 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 01:48:25 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/11 02:55:36 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/15 01:42:41 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t n);
 
-int	helper_count_digits(int n)
+static int	helper_count_digits(int n)
 {
 	int	counter;
 
