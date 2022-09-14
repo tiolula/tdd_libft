@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 23:46:56 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/11 03:10:20 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/12 13:53:53 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,9 @@ int	ft_atoi(const char *c)
 			negative = -1;
 		c++;
 	}
-	while (c[i])
+	while (ft_isdigit(c[i]))
 	{
-		if (!ft_isdigit(c[i]))
-			break ;
-		if (i > 0)
-			result *= 10;
-		result += (c[i] - 48);
+		result = (result * 10) + (c[i] - 48);
 		i++;
 	}
 	return (result * negative);
