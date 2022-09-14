@@ -713,7 +713,7 @@ MU_TEST(test_itoa_entering_0_integer_returns_minus_0_string)
 	free(actual_result);
 }
 
-MU_TEST(test_ascii_entering_a_returns_true)
+MU_TEST(test_isascii_entering_a_returns_true)
 {
 	// ARRANGE
 	int c = 'a';
@@ -727,7 +727,7 @@ MU_TEST(test_ascii_entering_a_returns_true)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST(test_ascii_entering_128_returns_false)
+MU_TEST(test_isascii_entering_128_returns_false)
 {
 	// ARRANGE
 	int c = 128;
@@ -741,7 +741,7 @@ MU_TEST(test_ascii_entering_128_returns_false)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST(test_ascii_entering_0_returns_true)
+MU_TEST(test_isascii_entering_0_returns_true)
 {
 	// ARRANGE
 	int c = 0;
@@ -755,7 +755,7 @@ MU_TEST(test_ascii_entering_0_returns_true)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST(test_ascii_entering_129_returns_false)
+MU_TEST(test_isascii_entering_129_returns_false)
 {
 	// ARRANGE
 	int c = 129;
@@ -769,7 +769,7 @@ MU_TEST(test_ascii_entering_129_returns_false)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST(test_ascii_entering_127_returns_true)
+MU_TEST(test_isascii_entering_127_returns_true)
 {
 	// ARRANGE
 	int c = 127;
@@ -841,11 +841,11 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_itoa_entering_minus_42_integer_returns_minus_42_string);
 	MU_RUN_TEST(test_itoa_entering_0_integer_returns_minus_0_string);
 
-	MU_RUN_TEST(test_ascii_entering_a_returns_true);
-	MU_RUN_TEST(test_ascii_entering_128_returns_false);
-	MU_RUN_TEST(test_ascii_entering_0_returns_true);
-	MU_RUN_TEST(test_ascii_entering_129_returns_false);
-	MU_RUN_TEST(test_ascii_entering_127_returns_true);
+	MU_RUN_TEST(test_isascii_entering_a_returns_true);
+	MU_RUN_TEST(test_isascii_entering_128_returns_false);
+	MU_RUN_TEST(test_isascii_entering_0_returns_true);
+	MU_RUN_TEST(test_isascii_entering_129_returns_false);
+	MU_RUN_TEST(test_isascii_entering_127_returns_true);
 }
 
 int main() {
