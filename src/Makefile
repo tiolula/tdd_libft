@@ -1,6 +1,6 @@
 
 NAME		= libft.a
-SRCS		= ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_memset.c ft_strlcpy.c ft_toupper.c ft_bzero.c ft_atoi.c ft_itoa.c ft_isascii.c ft_isprint.c ft_strlen.c
+SRCS		= ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_memset.c ft_strlcpy.c ft_toupper.c ft_bzero.c ft_atoi.c ft_itoa.c ft_isascii.c ft_isprint.c ft_strlen.c ft_tolower.c
 OBJS		= ${SRCS:.c=.o}
 CFLAGS		= -Wall -Wextra -Werror
 
