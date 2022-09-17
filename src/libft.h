@@ -27,4 +27,5 @@ char	*ft_itoa(int n);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 size_t	ft_strlen(const char *s);
+void	*ft_memcpy(void *dest, const void *src, size_t size);
 #endif

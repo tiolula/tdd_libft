@@ -979,6 +979,25 @@ MU_TEST(test_tolower_entry_200_returns_200)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
+MU_TEST(test_memcpy_simple_dst_and_src_copying_5_positions)
+{
+	// ARRANGE
+	char	dest[] = "watermelonjuice";
+	char	src[] = "apple";
+	char	size = 5;
+	char	expected_dest[] = "applemelonjuice";
+	char	*expected_memory_position = dest;
+	char	*returned_memory_position;
+	
+	// ACT
+	returned_memory_position = ft_memcpy(dest, src, size);
+
+	// ASSERT
+	mu_assert_string_eq(expected_dest, dest);
+	mu_assert(expected_memory_position == returned_memory_position, "memory position should be &dest");
+}
+
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -1059,6 +1078,7 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_tolower_entry_a_returns_a);
 	MU_RUN_TEST(test_tolower_entry_asterisc_returns_asterisc);
 	MU_RUN_TEST(test_tolower_entry_200_returns_200);
+	MU_RUN_TEST(test_memcpy_simple_dst_and_src_copying_5_positions);
 }
 
 int main() {
