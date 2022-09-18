@@ -997,6 +997,44 @@ MU_TEST(test_memcpy_simple_dst_and_src_copying_5_positions)
 	mu_assert(expected_memory_position == returned_memory_position, "memory position should be &dest");
 }
 
+MU_TEST(test_memmove_simple_dst_and_src_copyiing_5_positions)
+{
+	// ARRANGE
+	char	word[] = "watermelonjuice";
+	char	*dest = &word[10]; //juice
+	char	*src = &word[0]; //watermelonjuice
+	size_t 	size = 5;
+	char	expected_word_result[] = "watermelonwater";
+	char	*expected_memory_position = dest;
+	char	*returned_memory_position;
+	
+	// ACT
+	returned_memory_position = ft_memmove(dest, src, size);
+
+	// ASSERT
+	mu_assert_string_eq(expected_word_result, word);
+	mu_assert(expected_memory_position == returned_memory_position, "memory position should be &dest");
+}
+
+MU_TEST(test_memmove_dest_overlaping_src)
+{
+	// ARRANGE
+	char	word[] = "watermelonjuice";
+	char	*dest = &word[5]; //juice
+	char	*src = &word[0]; //watermelonjuice
+	size_t 	size = 10;
+	char	expected_word_result[] = "waterwatermelon";
+	char	*expected_memory_position = dest;
+	char	*returned_memory_position;
+	
+	// ACT
+	returned_memory_position = ft_memmove(dest, src, size);
+
+	// ASSERT
+	mu_assert_string_eq(expected_word_result, word);
+	mu_assert(expected_memory_position == returned_memory_position, "memory position should be &dest");
+}
+
 
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
@@ -1078,7 +1116,10 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_tolower_entry_a_returns_a);
 	MU_RUN_TEST(test_tolower_entry_asterisc_returns_asterisc);
 	MU_RUN_TEST(test_tolower_entry_200_returns_200);
+
 	MU_RUN_TEST(test_memcpy_simple_dst_and_src_copying_5_positions);
+	MU_RUN_TEST(test_memmove_simple_dst_and_src_copyiing_5_positions);
+	MU_RUN_TEST(test_memmove_dest_overlaping_src);
 }
 
 int main() {
