@@ -1022,13 +1022,12 @@ MU_TEST(test_memmove_dest_overlaping_src)
 	char	word[] = "watermelonjuice";
 	char	*dest = &word[5]; //melonjuice
 	char	*src = &word[0]; //watermelonjuice
-	size_t 	size = 10;
 	char	expected_word_result[] = "waterwatermelon";
 	char	*expected_memory_position = dest;
 	char	*returned_memory_position;
 	
 	// ACT
-	returned_memory_position = ft_memmove(dest, src, size);
+	returned_memory_position = ft_memmove(dest, src, 10);
 
 	// ASSERT
 	mu_assert_string_eq(expected_word_result, word);
@@ -1041,13 +1040,12 @@ MU_TEST(test_memmove_src_overlaping_dest)
 	char	word[] = "watermelonjuice";
 	char	*dest = &word[0]; //watermelonjuice
 	char	*src = &word[5]; //melonjuice
-	size_t 	size = 10;
 	char	expected_word_result[] = "melonjuicejuice";
 	char	*expected_memory_position = dest;
 	char	*returned_memory_position;
 	
 	// ACT
-	returned_memory_position = ft_memmove(dest, src, size);
+	returned_memory_position = ft_memmove(dest, src, 10);
 
 	// ASSERT
 	mu_assert_string_eq(expected_word_result, word);
