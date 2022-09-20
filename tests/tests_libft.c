@@ -1316,6 +1316,118 @@ MU_TEST_SUITE(test_strrchr_look_up_character_in_null_string_should_return_null)
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
+MU_TEST_SUITE(test_strncmp_comparing_banana_and_banana_size_6_should_return_zero)
+{
+	//ARRANGE
+	char	first_word[] = "banana";
+	char	second_word[] = "banana";
+	size_t	size = 6;
+	int		expected_result = 0;
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strncmp(first_word, second_word, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_7_should_return_minus_one)
+{
+	//ARRANGE
+	char	first_word[] = "bananaA";
+	char	second_word[] = "bananaB";
+	size_t	size = 7;
+	int		expected_result = -1;
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strncmp(first_word, second_word, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_6_should_return_zero)
+{
+	//ARRANGE
+	char	first_word[] = "bananaA";
+	char	second_word[] = "bananaB";
+	size_t	size = 6;
+	int		expected_result = 0;
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strncmp(first_word, second_word, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_0_should_return_zero)
+{
+	//ARRANGE
+	char	first_word[] = "bananaA";
+	char	second_word[] = "bananaB";
+	size_t	size = 0;
+	int		expected_result = 0;
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strncmp(first_word, second_word, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_strncmp_comparing_banana_and_banana_with_a_large_size_should_return_zero)
+{
+	//ARRANGE
+	char	first_word[] = "banana";
+	char	second_word[] = "banana";
+	size_t	size = 120;
+	int		expected_result = 0;
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strncmp(first_word, second_word, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_strncmp_comparing_A_and_empty_string_string_size_1_should_return_sixty_five)
+{
+	//ARRANGE
+	char	first_word[] = "A";
+	char	second_word[] = "";
+	size_t	size = 1;
+	int		expected_result = 65;
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strncmp(first_word, second_word, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_strncmp_comparing_B_and_A_size_1_should_return_one)
+{
+	//ARRANGE
+	char	first_word[] = "B";
+	char	second_word[] = "A";
+	size_t	size = 1;
+	int		expected_result = 1;
+	int		actual_result;
+
+	//ACT
+	actual_result = ft_strncmp(first_word, second_word, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -1421,6 +1533,14 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_strrchr_look_up_null_character_in_string_should_return_the_terminating_zero_address);
 	MU_RUN_TEST(test_strrchr_look_up_character_in_empty_string_should_return_null);
 	MU_RUN_TEST(test_strrchr_look_up_character_in_null_string_should_return_null);
+
+	MU_RUN_TEST(test_strncmp_comparing_banana_and_banana_size_6_should_return_zero);
+	MU_RUN_TEST(test_strncmp_comparing_bananaA_and_bananaB_size_7_should_return_minus_one);
+	MU_RUN_TEST(test_strncmp_comparing_bananaA_and_bananaB_size_6_should_return_zero);
+	MU_RUN_TEST(test_strncmp_comparing_bananaA_and_bananaB_size_0_should_return_zero);
+	MU_RUN_TEST(test_strncmp_comparing_banana_and_banana_with_a_large_size_should_return_zero);
+	MU_RUN_TEST(test_strncmp_comparing_A_and_empty_string_string_size_1_should_return_sixty_five);
+	MU_RUN_TEST(test_strncmp_comparing_B_and_A_size_1_should_return_one);
 }
 
 int main() {
