@@ -6,11 +6,11 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 01:03:59 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/20 01:05:25 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/20 01:24:10 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
