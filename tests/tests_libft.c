@@ -1102,7 +1102,7 @@ MU_TEST_SUITE(test_strchr_look_up_null_character_in_string_should_return_the_ter
 MU_TEST_SUITE(test_strchr_look_up_character_in_empty_string_should_return_null)
 {
 	//ARRANGE
-	char	string[] = "";
+	char		string[] = "";
 	int			character = 'c';
 	char		*expected_result = NULL;
 	char		*actual_result;
@@ -1241,6 +1241,81 @@ MU_TEST_SUITE(test_strnstr_finding_orabolas_in_amora_but_len_50_should_return_NU
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
+MU_TEST_SUITE(test_strrchr_look_up_non_existing_character_in_string_should_return_NULL)
+{
+	//ARRANGE
+	const char	string[] = "banana";
+	int			character = 'z';
+	char		*expected_result = NULL;
+	char		*actual_result;
+
+	//ACT
+	actual_result = ft_strrchr(string, character);
+
+	//ASSERT
+	mu_check(expected_result == actual_result);
+}
+
+MU_TEST_SUITE(test_strrchr_look_up_existing_character_in_string_should_return_its_address)
+{
+	//ARRANGE
+	char		string[] = "banana";
+	int			character = 'n';
+	char		*expected_result = &string[4]; //last 'n' address
+	char		*actual_result;
+
+	//ACT
+	actual_result = ft_strrchr(string, character);
+
+	//ASSERT
+	mu_assert(expected_result == actual_result, "expected_result content is different from actual_result");
+}
+
+MU_TEST_SUITE(test_strrchr_look_up_null_character_in_string_should_return_the_terminating_zero_address)
+{
+	//ARRANGE
+	char		string[] = "banana";
+	int			character = '\0';
+	char		*expected_result = &string[6]; // address of terminating '\0'
+	char		*actual_result;
+
+	//ACT
+	actual_result = ft_strrchr(string, character);
+
+	//ASSERT
+	mu_assert(expected_result == actual_result, "expected_result should point to the terminating '\\0'");
+}
+
+MU_TEST_SUITE(test_strrchr_look_up_character_in_empty_string_should_return_null)
+{
+	//ARRANGE
+	char		string[] = "";
+	int			character = 'c';
+	char		*expected_result = NULL;
+	char		*actual_result;
+
+	//ACT
+	actual_result = ft_strrchr(string, character);
+
+	//ASSERT
+	mu_assert(expected_result == actual_result, "expected_result should be NULL");
+}
+
+MU_TEST_SUITE(test_strrchr_look_up_character_in_null_string_should_return_null)
+{
+	//ARRANGE
+	char		string[] = "";
+	int			character = 'c';
+	char		*expected_result = NULL;
+	char		*actual_result;
+
+	//ACT
+	actual_result = ft_strrchr(string, character);
+
+	//ASSERT
+	mu_assert(expected_result == actual_result, "expected_result should be NULL");
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -1340,6 +1415,12 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_strnstr_finding_ora_in_amora_but_len_0_should_return_NULL);
 	MU_RUN_TEST(test_strnstr_finding_ora_in_amora_but_len_50_should_return_pointer_to_ora_in_amora);
 	MU_RUN_TEST(test_strnstr_finding_orabolas_in_amora_but_len_50_should_return_NULL);
+
+	MU_RUN_TEST(test_strrchr_look_up_non_existing_character_in_string_should_return_NULL);
+	MU_RUN_TEST(test_strrchr_look_up_existing_character_in_string_should_return_its_address);
+	MU_RUN_TEST(test_strrchr_look_up_null_character_in_string_should_return_the_terminating_zero_address);
+	MU_RUN_TEST(test_strrchr_look_up_character_in_empty_string_should_return_null);
+	MU_RUN_TEST(test_strrchr_look_up_character_in_null_string_should_return_null);
 }
 
 int main() {
