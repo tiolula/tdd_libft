@@ -1,4 +1,6 @@
 #include <stdlib.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 #include "minunit.h"
 #include "libft.h"
 
@@ -1642,6 +1644,209 @@ MU_TEST_SUITE(test_strlcat_concat_dst_123_and_empty_src_size_15_should_keep_dst_
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
+MU_TEST_SUITE(test_putchar_fd_entering_A_in_empty_file)
+{
+	//ARRANGE
+	char	c = 'A';
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 1;
+	char	result_buffer;
+	char	expected_result = c;
+
+	//ACT
+	ft_putchar_fd(c, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	read(fd, &result_buffer, read_count);
+	close(fd);
+	mu_assert_char_eq(expected_result, result_buffer);
+	remove("test.txt");
+}
+
+MU_TEST_SUITE(test_putstr_fd_entering_AB_in_empty_file)
+{
+	//ARRANGE
+	char	s[3] = "AB";
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 2;
+	char	result_buffer[2];
+	char	expected_first_char = 'A';
+	char	expected_second_char = 'B';
+	int		expected_read_size = 2;
+	int		actual_read_size;
+
+	//ACT
+	ft_putstr_fd(s, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	actual_read_size = read(fd, result_buffer, read_count);
+	close(fd);
+	mu_assert_char_eq(expected_first_char, result_buffer[0]);
+	mu_assert_char_eq(expected_second_char, result_buffer[1]);
+	mu_assert_int_eq(expected_read_size, actual_read_size);
+	remove("test.txt");
+}
+
+MU_TEST_SUITE(test_putend1_fd_entering_AB_in_empty_file)
+{
+	//ARRANGE
+	char	s[3] = "AB";
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 3;
+	char	result_buffer[3];
+	char	expected_first_char = 'A';
+	char	expected_second_char = 'B';
+	char	expected_third_char = '\n';
+	int		expected_read_size = 3;
+	int		actual_read_size;
+
+	//ACT
+	ft_putend1_fd(s, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	actual_read_size = read(fd, result_buffer, read_count);
+	close(fd);
+	mu_assert_char_eq(expected_first_char, result_buffer[0]);
+	mu_assert_char_eq(expected_second_char, result_buffer[1]);
+	mu_assert_char_eq(expected_third_char, result_buffer[2]);
+	mu_assert_int_eq(expected_read_size, actual_read_size);
+	remove("test.txt");
+}
+
+MU_TEST_SUITE(test_putnbr_fd_entering_42_in_empty_file)
+{
+	//ARRANGE
+	int		n = 42;
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 2;
+	char	result_buffer[2];
+	char	expected_first_char = '4';
+	char	expected_second_char = '2';
+	int		expected_read_size = 2;
+	int		actual_read_size;
+
+	//ACT
+	ft_putnbr_fd(n, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	actual_read_size = read(fd, result_buffer, read_count);
+	close(fd);
+	mu_assert_char_eq(expected_first_char, result_buffer[0]);
+	mu_assert_char_eq(expected_second_char, result_buffer[1]);
+	mu_assert_int_eq(expected_read_size, actual_read_size);
+	remove("test.txt");
+}
+
+MU_TEST_SUITE(test_putnbr_fd_entering_minus42_in_empty_file)
+{
+	//ARRANGE
+	int		n = -42;
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 3;
+	char	result_buffer[3];
+	char	expected_first_char = '-';
+	char	expected_second_char = '4';
+	char	expected_third_char = '2';
+	int		expected_read_size = 3;
+	int		actual_read_size;
+
+	//ACT
+	ft_putnbr_fd(n, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	actual_read_size = read(fd, result_buffer, read_count);
+	close(fd);
+	mu_assert_char_eq(expected_first_char, result_buffer[0]);
+	mu_assert_char_eq(expected_second_char, result_buffer[1]);
+	mu_assert_char_eq(expected_third_char, result_buffer[2]);
+	mu_assert_int_eq(expected_read_size, actual_read_size);
+	remove("test.txt");
+}
+
+MU_TEST_SUITE(test_putnbr_fd_entering_MAX_INT_in_empty_file)
+{
+	//ARRANGE
+	int		n = 2147483647;
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 10;
+	char	result_buffer[11];
+	char	expected_result_buffer[11] = "2147483647";
+	int		expected_read_size = 10;
+	int		actual_read_size;
+
+	//ACT
+	ft_putnbr_fd(n, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	actual_read_size = read(fd, result_buffer, read_count);
+	result_buffer[10] = '\0'; //to use assert string
+	close(fd);
+	mu_assert_string_eq(expected_result_buffer, result_buffer);
+	mu_assert_int_eq(expected_read_size, actual_read_size);
+	remove("test.txt");
+}
+
+MU_TEST_SUITE(test_putnbr_fd_entering_MIN_INT_in_empty_file)
+{
+	//ARRANGE
+	int		n = -2147483648;
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 11;
+	char	result_buffer[12];
+	char	expected_result_buffer[12] = "-2147483648";
+	int		expected_read_size = 11;
+	int		actual_read_size;
+
+	//ACT
+	ft_putnbr_fd(n, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	actual_read_size = read(fd, result_buffer, read_count);
+	result_buffer[11] = '\0'; //to use assert string
+	close(fd);
+	mu_assert_string_eq(expected_result_buffer, result_buffer);
+	mu_assert_int_eq(expected_read_size, actual_read_size);
+	remove("test.txt");
+}
+
+MU_TEST_SUITE(test_putnbr_fd_entering_0_in_empty_file)
+{
+	//ARRANGE
+	int		n = 0;
+	int 	fd = open("test.txt", O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+	size_t	read_count = 1;
+	char	result_buffer;
+	char	expected_first_char = '0';
+	int		expected_read_size = 1;
+	int		actual_read_size;
+
+	//ACT
+	ft_putnbr_fd(n, fd);
+	close(fd);
+
+	//ASSERT
+	fd = open("test.txt", O_RDONLY);
+	actual_read_size = read(fd, &result_buffer, read_count);
+	close(fd);
+	mu_assert_char_eq(expected_first_char, result_buffer);
+	mu_assert_int_eq(expected_read_size, actual_read_size);
+	remove("test.txt");
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -1767,6 +1972,18 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_strlcat_concat_AnullCD_and_B_size_15_should_set_dst_as_ABnullD_and_return_2);
 	MU_RUN_TEST(test_strlcat_concat_empty_dst_and_123456789_size_15_should_set_dst_as_123456789_and_return_9);
 	MU_RUN_TEST(test_strlcat_concat_dst_123_and_empty_src_size_15_should_keep_dst_as_123_and_return_3);
+
+	MU_RUN_TEST(test_putchar_fd_entering_A_in_empty_file);
+
+	MU_RUN_TEST(test_putstr_fd_entering_AB_in_empty_file);
+
+	MU_RUN_TEST(test_putend1_fd_entering_AB_in_empty_file);
+
+	MU_RUN_TEST(test_putnbr_fd_entering_42_in_empty_file);
+	MU_RUN_TEST(test_putnbr_fd_entering_minus42_in_empty_file);
+	MU_RUN_TEST(test_putnbr_fd_entering_MAX_INT_in_empty_file);
+	MU_RUN_TEST(test_putnbr_fd_entering_MIN_INT_in_empty_file);
+	MU_RUN_TEST(test_putnbr_fd_entering_0_in_empty_file);
 }
 
 int main() {
@@ -1774,4 +1991,3 @@ int main() {
 	MU_REPORT();
 	return MU_EXIT_CODE;
 }
-
