@@ -1,4 +1,4 @@
-# libft [![build](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml) [![norminette](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml)  [![test](https://github.com/tiolula/tdd_libft/actions/workflows/test.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/test.yml)  [![valgrind](https://github.com/tiolula/tdd_libft/actions/workflows/memoryleak.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/memoryleak.yml)
+# Libft [![build](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/build.yml) [![norminette](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/norminette.yml)  [![test](https://github.com/tiolula/tdd_libft/actions/workflows/test.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/test.yml)  [![valgrind](https://github.com/tiolula/tdd_libft/actions/workflows/memoryleak.yml/badge.svg)](https://github.com/tiolula/tdd_libft/actions/workflows/memoryleak.yml)
 
 
 > A library I hope someday will be useful to myself.
@@ -60,10 +60,34 @@ So [libft](https://github.com/tiolula/tdd_libft/blob/master/src/libft.h) is my o
 
 ------------------------
 
-## 🔴🟢🟢 TDD
+## 🥋 42 as a dojo
 
-Once I already know something about programming, I also decided to tie my legs and develop my Libft fully using [TDD - Test Driven Development](http://www.extremeprogramming.org/rules/testfirst.html). 
+> A [dōjō](https://en.wikipedia.org/wiki/Dojo) (道場, Japanese pronunciation: [doꜜː(d)ʑoː][note 1]) is a hall or place for immersive learning or meditation. This is traditionally in the field of martial arts, but has been seen increasingly in other fields, such as meditation and software development. The term literally means "place of the Way" in Japanese.
+
+Once I already know something about programming, I decided to use my libft as a training space for techniques I like, for example:
+
+👇🏽
+
+### 🔴🟢🟢 TDD
+
+One of the practices I decided to try on my libft fully is [TDD - Test Driven Development](http://www.extremeprogramming.org/rules/testfirst.html). 🤦🏽‍♂️
 
 In this repo you can see the consequences of that.
 
 If you don't know anything about [TDD](http://www.extremeprogramming.org/rules/testfirst.html), I recommend you read about [Extreme Programming](http://www.extremeprogramming.org/index.html).
+
+👍🏽
+
+### ✅ Continuous Integration
+
+Also following [Extreme Programming](http://www.extremeprogramming.org/index.html) practices, I [configured github actions](http://www.extremeprogramming.org/rules/dedicated.html) to build the project, run my [tests](http://www.extremeprogramming.org/rules/unittests.html), run valgrind to check memory leaks and finally run norminette, wich validates the oficial 42 [standards](http://www.extremeprogramming.org/rules/standards.html). Maybe we can call it [Continuous Integration](http://www.extremeprogramming.org/rules/integrateoften.html). Can we?
+
+🤔
+
+### 👬🏽 Pair Programming
+
+I never liked to code alone. I know I can do it, but why using just one mind if I can use several? My libft was almost 100% [pair programmed](http://www.extremeprogramming.org/rules/pair.html), with several people.
+
+Most part of the paired code was made in [this repo](https://github.com/tiolula/dojozin_libft). We can say that all the code on it is [collective](http://www.extremeprogramming.org/rules/collective.html).
+
+🙌🏽
