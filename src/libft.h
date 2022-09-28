@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 23:37:42 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/26 23:18:52 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/09/27 23:39:43 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putend1_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+
 #endif
