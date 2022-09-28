@@ -9,35 +9,35 @@ A library I hope someday will be useful to myself.
 
 It's like swimming in a cold lake with your hands tied. But since you are learning to program, you can untie them by yourself. 
 
-Libft is my own library, wich I hope will be useful until my last project of 42 curriculum.
+[Libft](https://github.com/tiolula/tdd_libft/blob/master/src/libft.h) is my own library, wich I hope will be useful until my last project of 42 curriculum.
 
 ### Libft Content
 
 23 functions that implements the original ones and do not use any external function: 
 
-• isalpha
-• isdigit
-• isalnum
-• isascii
-• isprint
-• strlen
-• memset
-• bzero
-• memcpy
-• memmove
-• strlcpy
-• strlcat
-• toupper
-• tolower
-• strchr
-• strrchr
-• strncmp
+• [isalpha](https://github.com/tiolula/tdd_libft/blob/master/src/ft_isalpha.c)
+• [isdigit](https://github.com/tiolula/tdd_libft/blob/master/src/ft_isdigit.c)
+• [isalnum](https://github.com/tiolula/tdd_libft/blob/master/src/ft_isalnum.c)
+• [isascii](https://github.com/tiolula/tdd_libft/blob/master/src/ft_isascii.c)
+• [isprint](https://github.com/tiolula/tdd_libft/blob/master/src/ft_isprint.c)
+• [strlen](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strlen.c)
+• [memset](https://github.com/tiolula/tdd_libft/blob/master/src/ft_memset.c)
+• [bzero](https://github.com/tiolula/tdd_libft/blob/master/src/ft_bzero.c)
+• [memcpy](https://github.com/tiolula/tdd_libft/blob/master/src/ft_memcpy.c)
+• [memmove](https://github.com/tiolula/tdd_libft/blob/master/src/ft_memmove.c)
+• [strlcpy](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strlcpy.c)
+• [strlcat](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strlcat.c)
+• [toupper](https://github.com/tiolula/tdd_libft/blob/master/src/ft_toupper.c)
+• [tolower](https://github.com/tiolula/tdd_libft/blob/master/src/ft_tolower.c)
+• [strchr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strchr.c)
+• [strrchr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strrchr.c)
+• [strncmp](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strncmp.c)
 • memchr [TODO]
 • memcmp [TODO]
-• strnstr
-• atoi
-• calloc
-• strdup
+• [strnstr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strnstr.c)
+• [atoi](https://github.com/tiolula/tdd_libft/blob/master/src/ft_atoi.c)
+• [calloc](https://github.com/tiolula/tdd_libft/blob/master/src/ft_calloc.c)
+• [strdup](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strdup.c)
 
 2 functions that implements the original ones and use malloc():
 
@@ -46,17 +46,17 @@ Libft is my own library, wich I hope will be useful until my last project of 42 
 
 11 functions that are either not in the libc, or that are part of it but in a different form:
 
-• ft_substr
-• ft_strjoin
+• [ft_substr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_substr.c))
+• [ft_strjoin](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strjoin.c))
 • ft_strtrim [TODO]
 • ft_split [TODO]
-• ft_itoa
+• [ft_itoa](https://github.com/tiolula/tdd_libft/blob/master/src/ft_itoa.c))
 • ft_strmapi [TODO]
 • ft_striteri [TODO]
-• ft_putchar_fd
-• ft_putstr_fd
-• ft_putendl_fd
-• ft_putnbr_fd
+• [ft_putchar_fd](https://github.com/tiolula/tdd_libft/blob/master/src/ft_putchar_fd.c))
+• [ft_putstr_fd](https://github.com/tiolula/tdd_libft/blob/master/src/ft_putstr_fd.c))
+• [ft_putendl_fd](https://github.com/tiolula/tdd_libft/blob/master/src/ft_putendl_fd.c))
+• [ft_putnbr_fd](https://github.com/tiolula/tdd_libft/blob/master/src/ft_putnbr_fd.c))
 
 ## TDD
 
