@@ -1977,6 +1977,118 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_5_len_1_should_return_NULL)
 	mu_assert(actual_result == NULL, "The result should be NULL");
 }
 
+MU_TEST_SUITE(test_strjoin_entering_A_and_B_should_return_AB)
+{
+	//ARRANGE
+	char	s1[] = "A";
+	char	s2[] = "B";
+	char	expected_result[] = "AB";			
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_strjoin(s1, s2);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST_SUITE(test_strjoin_entering_AB_and_CD_should_return_ABCD)
+{
+	//ARRANGE
+	char	s1[] = "AB";
+	char	s2[] = "CD";
+	char	expected_result[] = "ABCD";			
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_strjoin(s1, s2);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST_SUITE(test_strjoin_entering_ABC_and_DEF_should_return_ABCDEF)
+{
+	//ARRANGE
+	char	s1[] = "ABC";
+	char	s2[] = "DEF";
+	char	expected_result[] = "ABCDEF";			
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_strjoin(s1, s2);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST_SUITE(test_strjoin_entering_LULA_and_LIVRE_should_return_LULALIVRE)
+{
+	//ARRANGE
+	char	s1[] = "LULA";
+	char	s2[] = "LIVRE";
+	char	expected_result[] = "LULALIVRE";			
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_strjoin(s1, s2);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST_SUITE(test_strjoin_entering_empty_string_and_X_should_return_X)
+{
+	//ARRANGE
+	char	s1[] = "";
+	char	s2[] = "X";
+	char	expected_result[] = "X";			
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_strjoin(s1, s2);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST_SUITE(test_strjoin_entering_X_and_empty_string_should_return_X)
+{
+	//ARRANGE
+	char	s1[] = "X";
+	char	s2[] = "";
+	char	expected_result[] = "X";			
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_strjoin(s1, s2);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
+MU_TEST_SUITE(test_strjoin_entering_empty_string_and_empty_string_should_return_empty_string)
+{
+	//ARRANGE
+	char	s1[] = "";
+	char	s2[] = "";
+	char	expected_result[] = "";
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_strjoin(s1, s2);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result, actual_result);
+	free(actual_result);
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -2123,6 +2235,14 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_substr_entering_ABCDE_start_0_len_3_should_return_ABC);
 	MU_RUN_TEST(test_substr_entering_empty_string_start_0_len_3_should_return_NULL);
 	MU_RUN_TEST(test_substr_entering_ABCDE_start_5_len_1_should_return_NULL);
+
+	MU_RUN_TEST(test_strjoin_entering_A_and_B_should_return_AB);
+	MU_RUN_TEST(test_strjoin_entering_AB_and_CD_should_return_ABCD);
+	MU_RUN_TEST(test_strjoin_entering_ABC_and_DEF_should_return_ABCDEF);
+	MU_RUN_TEST(test_strjoin_entering_LULA_and_LIVRE_should_return_LULALIVRE);
+	MU_RUN_TEST(test_strjoin_entering_empty_string_and_X_should_return_X);
+	MU_RUN_TEST(test_strjoin_entering_X_and_empty_string_should_return_X);
+	MU_RUN_TEST(test_strjoin_entering_empty_string_and_empty_string_should_return_empty_string);
 }
 
 int main() {
