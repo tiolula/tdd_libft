@@ -42,7 +42,7 @@ So [libft](https://github.com/tiolula/tdd_libft/blob/master/src/libft.h) is my o
 * 2 functions that implements the original ones and use malloc():
 
 	* calloc [TODO]
-	* strdup [TODO]
+	* [strdup](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strdup.c)
 
 * 11 functions that are either not in the libc, or that are part of it but in a different form:
 
@@ -52,7 +52,7 @@ So [libft](https://github.com/tiolula/tdd_libft/blob/master/src/libft.h) is my o
 	* ft_split [TODO] 🔥
 	* [ft_itoa](https://github.com/tiolula/tdd_libft/blob/master/src/ft_itoa.c)
 	* ft_strmapi [TODO]
-	* ft_striteri [TODO]
+	* ft_striteri [WIP]
 	* [ft_putchar_fd](https://github.com/tiolula/tdd_libft/blob/master/src/ft_putchar_fd.c)
 	* [ft_putstr_fd](https://github.com/tiolula/tdd_libft/blob/master/src/ft_putstr_fd.c)
 	* [ft_putendl_fd](https://github.com/tiolula/tdd_libft/blob/master/src/ft_putendl_fd.c)
