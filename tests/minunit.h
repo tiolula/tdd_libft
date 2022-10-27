@@ -245,6 +245,24 @@ static void (*minunit_teardown)(void) = NULL;
 	}\
 )
 
+#define mu_assert_mem_eq(expected, result, size) MU__SAFE_BLOCK(\
+	const void* minunit_tmp_e = expected;\
+	const void* minunit_tmp_r = result;\
+	minunit_assert++;\
+	if (!minunit_tmp_e) {\
+		minunit_tmp_e = "<null pointer>";\
+	}\
+	if (!minunit_tmp_r) {\
+		minunit_tmp_r = "<null pointer>";\
+	}\
+	if(memcmp(minunit_tmp_e, minunit_tmp_r, size)) {\
+		snprintf(minunit_last_message, MINUNIT_MESSAGE_LEN, PRINTRED("%s failed:\n\t%s:%d: one or more memory positions are different"), __func__, __FILE__, __LINE__);\
+		minunit_status = 1;\
+		return;\
+	} else {\
+		printf(BOLDGREEN("."));\
+	}\
+)
 /*
  * The following two functions were written by David Robert Nadeau
  * from http://NadeauSoftware.com/ and distributed under the

@@ -2221,6 +2221,36 @@ MU_TEST_SUITE(test_striteri_passing_null_and_plus_one_function_should_do_nothing
 	mu_assert_string_eq(expected_result, s);
 }
 
+MU_TEST_SUITE(test_calloc_allocating_1_byte_char)
+{
+	//ARRANGE
+	size_t	count = 1;
+	size_t	size = sizeof(char);
+	char	expected_result = '\0';
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_calloc(count, size);
+
+	//ASSERT
+	mu_assert_char_eq(expected_result, *actual_result);
+}
+
+MU_TEST_SUITE(test_calloc_allocating_100000_bytes_char)
+{
+	//ARRANGE
+	size_t	count = 100000;
+	size_t	size = sizeof(char);
+	char	expected_result[100000] = {0};
+	char	*actual_result;
+
+	//ACT
+	actual_result = ft_calloc(count, size);
+
+	//ASSERT
+	mu_assert_mem_eq(expected_result, actual_result, count);
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -2386,6 +2416,9 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_striteri_passing_empty_string_and_plus_one_function_should_not_change_it);
 	MU_RUN_TEST(test_striteri_passing_abc_and_null_should_do_nothing);
 	MU_RUN_TEST(test_striteri_passing_null_and_plus_one_function_should_do_nothing);
+
+	MU_RUN_TEST(test_calloc_allocating_1_byte_char);
+	MU_RUN_TEST(test_calloc_allocating_100000_bytes_char);
 }
 
 int main() {

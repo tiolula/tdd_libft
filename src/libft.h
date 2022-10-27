@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 23:37:42 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/09/30 04:05:25 by coder            ###   ########.fr       */
+/*   Updated: 2022/10/27 18:51:08 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+void	*ft_calloc(size_t count, size_t size);
 #endif
