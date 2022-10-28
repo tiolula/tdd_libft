@@ -41,7 +41,7 @@ So [libft](https://github.com/tiolula/tdd_libft/blob/master/src/libft.h) is my o
 
 * 2 functions that implements the original ones and use malloc():
 
-	* calloc [WIP]
+	* [calloc](https://github.com/tiolula/tdd_libft/blob/master/src/ft_calloc.c)
 	* [strdup](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strdup.c)
 
 * 11 functions that are either not in the libc, or that are part of it but in a different form:
