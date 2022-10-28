@@ -2273,6 +2273,37 @@ MU_TEST_SUITE(test_calloc_allocating_more_than_size_t_max_should_return_null)
 	free(actual_result);
 }
 
+MU_TEST_SUITE(test_memchr_searching_l_in_lula_returns_the_first_letter_pointer)
+{
+	//ARRANGE
+	char	word[] = "lula";
+	char	letter = 'l';
+	size_t	size = 4;
+	char	*expected_result = &word[0];
+	void	*actual_result;
+
+	//ACT
+	actual_result = ft_memchr(word, letter, size);
+
+	//ASSERT
+	mu_assert(expected_result == actual_result, "the returned memory position is not the expected one");
+}
+
+MU_TEST_SUITE(test_memchr_searching_u_in_lula_returns_the_second_letter_pointer)
+{
+	//ARRANGE
+	char	word[] = "lula";
+	char	letter = 'u';
+	size_t	size = 4;
+	char	*expected_result = &word[1];
+	void	*actual_result;
+
+	//ACT
+	actual_result = ft_memchr(word, letter, size);
+
+	//ASSERT
+	mu_assert(expected_result == actual_result, "the returned memory position is not the expected one");
+}
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -2442,6 +2473,9 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_calloc_allocating_1_byte_char);
 	MU_RUN_TEST(test_calloc_allocating_100000_bytes_char);
 	MU_RUN_TEST(test_calloc_allocating_more_than_size_t_max_should_return_null);
+	
+	MU_RUN_TEST(test_memchr_searching_l_in_lula_returns_the_first_letter_pointer);
+	MU_RUN_TEST(test_memchr_searching_u_in_lula_returns_the_second_letter_pointer);
 }
 
 int main() {
