@@ -2304,6 +2304,55 @@ MU_TEST_SUITE(test_memchr_searching_u_in_lula_returns_the_second_letter_pointer)
 	//ASSERT
 	mu_assert(expected_result == actual_result, "the returned memory position is not the expected one");
 }
+
+MU_TEST_SUITE(test_memcmp_comparing_lula_and_lula_returns_0)
+{
+	//ARRANGE
+	char	word1[] = "lula";
+	char	word2[] = "lula";
+	int	size = 4;
+	int	expected_result = 0;
+	int	actual_result;
+
+	//ACT
+	actual_result = ft_memcmp(word1, word2, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_memcmp_comparing_lula_and_lulu_returns_minus_1)
+{
+	//ARRANGE
+	char	word1[] = "lula";
+	char	word2[] = "lulu";
+	int	size = 4;
+	int	expected_result = -1;
+	int	actual_result;
+
+	//ACT
+	actual_result = ft_memcmp(word1, word2, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
+MU_TEST_SUITE(test_memcmp_comparing_lulu_and_lula_returns_1)
+{
+	//ARRANGE
+	char	word1[] = "lulu";
+	char	word2[] = "lula";
+	int	size = 4;
+	int	expected_result = 1;
+	int	actual_result;
+
+	//ACT
+	actual_result = ft_memcmp(word1, word2, size);
+
+	//ASSERT
+	mu_assert_int_eq(expected_result, actual_result);
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalpha_receiving_A_returns_true);
 	MU_RUN_TEST(test_isalpha_receiving_char_1_returns_false);
@@ -2476,6 +2525,10 @@ MU_TEST_SUITE(test_suite) {
 	
 	MU_RUN_TEST(test_memchr_searching_l_in_lula_returns_the_first_letter_pointer);
 	MU_RUN_TEST(test_memchr_searching_u_in_lula_returns_the_second_letter_pointer);
+
+	MU_RUN_TEST(test_memcmp_comparing_lula_and_lula_returns_0);
+	MU_RUN_TEST(test_memcmp_comparing_lula_and_lulu_returns_minus_1);
+	MU_RUN_TEST(test_memcmp_comparing_lulu_and_lula_returns_1);
 }
 
 int main() {
