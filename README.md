@@ -32,7 +32,7 @@ So [libft](https://github.com/tiolula/tdd_libft/blob/master/src/libft.h) is my o
 	* [strchr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strchr.c)
 	* [strrchr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strrchr.c)
 	* [strncmp](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strncmp.c)
-	* memchr [TODO]
+	* memchr [WIP]
 	* memcmp [TODO]
 	* [strnstr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strnstr.c)
 	* [atoi](https://github.com/tiolula/tdd_libft/blob/master/src/ft_atoi.c)
