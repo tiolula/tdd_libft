@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:56:31 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/10/29 12:56:33 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:45:56 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,71 +15,11 @@
 #include <sys/stat.h>
 #include "minunit.h"
 #include "libft.h"
+#include "tests_ft_strtrim.c"
+#include "tests_ft_memset.c"
+#include "tests_ft_strlcpy.c"
 
-MU_TEST(test_memset_setting_NUL_in_one_mem_position){
-	//ARRANGE
-	void*	memory_position = malloc(sizeof(char) * 1);
-	// setting a random value (42) to "dirty" it before the test
-	memset(memory_position, 42, 1);
-	int	value_to_set = 0;
-	
-	//ACT
-	ft_memset(memory_position, value_to_set, 1);
-
-	//ASSERT
-	mu_assert(*(unsigned char *)memory_position == value_to_set, "memory value should be set to NUL");
-	free(memory_position);
-}
-
-MU_TEST(test_memset_setting_NUL_in_two_mem_positions){
-	//ARRANGE
-	void*	memory_position = malloc(sizeof(char) * 2);
-	// setting a random value (42) to "dirty" it before the test
-	memset(memory_position, 42, 2);
-	int	value_to_set = 0;
-	
-	//ACT
-	ft_memset(memory_position, value_to_set, 2);
-
-	//ASSERT
-	mu_assert(*(unsigned char *)memory_position == value_to_set, "the first memory position value should be set to NUL");
-	mu_assert(*(unsigned char *)(memory_position + 1) == value_to_set, "the second memory position value should be set to NUL");
-	free(memory_position);
-}
-
-MU_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer){
-	//ARRANGE
-	void*	memory_position = malloc(sizeof(char) * 2);
-	// setting a random value (42) to "dirty" it before the test
-	memset(memory_position, 42, 2);
-	int	value_to_set = 0;
-	void*	returned_memory_position;
-	
-	//ACT
-	returned_memory_position = ft_memset(memory_position, value_to_set, 2);
-
-	//ASSERT
-	mu_assert(memory_position == returned_memory_position, "the returned memory position is not the original one");
-	free(memory_position);
-}
-
-MU_TEST(test_memset_setting_1_in_two_mem_positions){
-	//ARRANGE
-	void*	memory_position = malloc(sizeof(char) * 2);
-	// setting a random value (42) to "dirty" it before the test
-	memset(memory_position, 42, 2);
-	int	value_to_set = 1;
-	
-	//ACT
-	ft_memset(memory_position, value_to_set, 2);
-	
-	//ASSERT
-	mu_assert(*(unsigned char *)memory_position == value_to_set, "the first memory position value should be set to 1");
-	mu_assert(*(unsigned char *)(memory_position + 1) == value_to_set, "the second memory position value should be set to 1");
-	free(memory_position);
-}
-
-MU_TEST_SUITE(test_isalpha_receiving_A_returns_true)
+MU_TEST(test_isalpha_receiving_A_returns_true)
 {
 	//ARRANGE
 	char	input = 'A';
@@ -93,7 +33,7 @@ MU_TEST_SUITE(test_isalpha_receiving_A_returns_true)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isalpha_receiving_char_1_returns_false)
+MU_TEST(test_isalpha_receiving_char_1_returns_false)
 {
 	//ARRANGE
 	char	input = '1';
@@ -107,7 +47,7 @@ MU_TEST_SUITE(test_isalpha_receiving_char_1_returns_false)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isalpha_receiving_asterisc_returns_false)
+MU_TEST(test_isalpha_receiving_asterisc_returns_false)
 {
 	//ARRANGE
 	int		input = '*';
@@ -121,7 +61,7 @@ MU_TEST_SUITE(test_isalpha_receiving_asterisc_returns_false)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isalpha_receiving_minus_65_returns_false)
+MU_TEST(test_isalpha_receiving_minus_65_returns_false)
 {
 	//ARRANGE
 	int		input = -65;
@@ -135,7 +75,7 @@ MU_TEST_SUITE(test_isalpha_receiving_minus_65_returns_false)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isdigit_receiving_1_returns_true)
+MU_TEST(test_isdigit_receiving_1_returns_true)
 {
 	//ARRANGE
 	int		input = '1';
@@ -149,7 +89,7 @@ MU_TEST_SUITE(test_isdigit_receiving_1_returns_true)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isdigit_receiving_a_returns_false)
+MU_TEST(test_isdigit_receiving_a_returns_false)
 {
 	//ARRANGE
 	int		input = 'a';
@@ -163,7 +103,7 @@ MU_TEST_SUITE(test_isdigit_receiving_a_returns_false)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isalnum_receiving_a_returns_true)
+MU_TEST(test_isalnum_receiving_a_returns_true)
 {
 	//ARRANGE
 	int		input = 'a';
@@ -177,7 +117,7 @@ MU_TEST_SUITE(test_isalnum_receiving_a_returns_true)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isalnum_receiving_asterisc_returns_false)
+MU_TEST(test_isalnum_receiving_asterisc_returns_false)
 {
 	//ARRANGE
 	int		input = '*';
@@ -191,7 +131,7 @@ MU_TEST_SUITE(test_isalnum_receiving_asterisc_returns_false)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_isalnum_receiving_1_returns_true)
+MU_TEST(test_isalnum_receiving_1_returns_true)
 {
 	//ARRANGE
 	int		input = '1';
@@ -203,110 +143,6 @@ MU_TEST_SUITE(test_isalnum_receiving_1_returns_true)
 
 	//ASSERT
 	mu_assert_int_eq(expected_result, actual_result);
-}
-
-MU_TEST_SUITE(test_strlcpy_entering_ai_oi_2_set_dst_as_o_and_returns_2)
-{
-	//ARRANGE
-	char	dst[] = "ai";
-	char	src[] = "oi";
-	int		size = 2;
-	int		expected_result = 2;
-	char	expected_dst[] = "o";
-	int		actual_result;
-
-	//ACT
-	actual_result = ft_strlcpy(dst, src, size);
-
-	//ASSERT
-	mu_assert_int_eq(expected_result, actual_result);
-	mu_assert_string_eq(expected_dst, dst);
-}
-
-MU_TEST_SUITE(test_strlcpy_entering_ah_oi_3_set_dst_as_oi_and_returns_2)
-{
-	//ARRANGE
-	char	dst[] = "ah";
-	char	src[] = "oi";
-	int		size = 3;
-	int		expected_result = 2;
-	char	expected_dst[] = "oi";
-	int		actual_result;
-
-	//ACT
-	actual_result = ft_strlcpy(dst, src, size);
-
-	//ASSERT
-	mu_assert_int_eq(expected_result, actual_result);
-	mu_assert_string_eq(expected_dst, dst);
-}
-
-MU_TEST_SUITE(test_strlcpy_entering_ah_boi_3_set_dst_as_bo_and_returns_3)
-{
-	//ARRANGE
-	char	dst[] = "ah";
-	char	src[] = "boi";
-	int		size = 3;
-	int		expected_result = 3;
-	char	expected_dst[] = "bo";
-	int		actual_result;
-
-	//ACT
-	actual_result = ft_strlcpy(dst, src, size);
-
-	//ASSERT
-	mu_assert_int_eq(expected_result, actual_result);
-	mu_assert_string_eq(expected_dst, dst);
-}
-
-MU_TEST_SUITE(test_strlcpy_entering_papelada_boiada_9_keep_dst7_as_a)
-{
-	//ARRANGE
-	char	dst[] = "papelada";
-	char	src[] = "boiada";
-	int		size = 9;
-
-	//ACT
-	ft_strlcpy(dst, src, size);
-
-	//ASSERT
-	mu_assert_int_eq('a', dst[7]);
-}
-
-MU_TEST_SUITE(test_strlcpy_entering_lu_la_minus_1_set_dst_as_la_and_returns_2)
-{
-	//ARRANGE
-	char	dst[] = "lu";
-	char	src[] = "la";
-	int		size = -1;
-	int		expected_result = 2;
-	char	expected_dst[] = "la";
-	int		actual_result;
-
-	//ACT
-	actual_result = ft_strlcpy(dst, src, size);
-
-	//ASSERT
-	mu_assert_int_eq(expected_result, actual_result);
-	mu_assert_string_eq(expected_dst, dst);
-}
-
-MU_TEST_SUITE(test_strlcpy_entering_mochida_rapdos_0_do_not_modify_dst_and_returns_6)
-{
-	//ARRANGE
-	char	dst[] = "mochida";
-	char	src[] = "rapdos";
-	int		size = 0;
-	int		expected_result = 6;
-	char	expected_dst[] = "mochida";
-	int		actual_result;
-
-	//ACT
-	actual_result = ft_strlcpy(dst, src, size);
-
-	//ASSERT
-	mu_assert_int_eq(expected_result, actual_result);
-	mu_assert_string_eq(expected_dst, dst);
 }
 
 MU_TEST(test_toupper_entry_x_returns_X)
@@ -1066,7 +902,7 @@ MU_TEST(test_memmove_src_overlaping_dest)
 	mu_assert(expected_memory_position == returned_memory_position, "memory position should be &dest");
 }
 
-MU_TEST_SUITE(test_strchr_look_up_non_existing_character_in_string_should_return_NULL)
+MU_TEST(test_strchr_look_up_non_existing_character_in_string_should_return_NULL)
 {
 	//ARRANGE
 	const char	string[] = "banana";
@@ -1081,7 +917,7 @@ MU_TEST_SUITE(test_strchr_look_up_non_existing_character_in_string_should_return
 	mu_check(expected_result == actual_result);
 }
 
-MU_TEST_SUITE(test_strchr_look_up_existing_character_in_string_should_return_its_address)
+MU_TEST(test_strchr_look_up_existing_character_in_string_should_return_its_address)
 {
 	//ARRANGE
 	char	string[] = "banana";
@@ -1096,7 +932,7 @@ MU_TEST_SUITE(test_strchr_look_up_existing_character_in_string_should_return_its
 	mu_assert(expected_result == actual_result, "expected_result content is different from actual_result");
 }
 
-MU_TEST_SUITE(test_strchr_look_up_null_character_in_string_should_return_the_terminating_zero_address)
+MU_TEST(test_strchr_look_up_null_character_in_string_should_return_the_terminating_zero_address)
 {
 	//ARRANGE
 	char	string[] = "banana";
@@ -1111,7 +947,7 @@ MU_TEST_SUITE(test_strchr_look_up_null_character_in_string_should_return_the_ter
 	mu_assert(expected_result == actual_result, "expected_result should point to the terminating '\\0'");
 }
 
-MU_TEST_SUITE(test_strchr_look_up_character_in_empty_string_should_return_null)
+MU_TEST(test_strchr_look_up_character_in_empty_string_should_return_null)
 {
 	//ARRANGE
 	char		string[] = "";
@@ -1126,7 +962,7 @@ MU_TEST_SUITE(test_strchr_look_up_character_in_empty_string_should_return_null)
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
-MU_TEST_SUITE(test_strchr_look_up_character_in_null_string_should_return_null)
+MU_TEST(test_strchr_look_up_character_in_null_string_should_return_null)
 {
 	//ARRANGE
 	char		string[] = "";
@@ -1141,7 +977,7 @@ MU_TEST_SUITE(test_strchr_look_up_character_in_null_string_should_return_null)
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
-MU_TEST_SUITE(test_strnstr_to_find_ora_em_amora_should_return_a_pointer_to_ora_in_amora)
+MU_TEST(test_strnstr_to_find_ora_em_amora_should_return_a_pointer_to_ora_in_amora)
 {
 	//ARRANGE
 	char		big[] = "amora";
@@ -1157,7 +993,7 @@ MU_TEST_SUITE(test_strnstr_to_find_ora_em_amora_should_return_a_pointer_to_ora_i
 	mu_assert(expected_result == actual_result, "expected_result should point to address of the char o of amora");
 }
 
-MU_TEST_SUITE(test_strnstr_to_find_aro_em_amora_should_return_NULL)
+MU_TEST(test_strnstr_to_find_aro_em_amora_should_return_NULL)
 {
 	//ARRANGE
 	char		big[] = "amora";
@@ -1173,7 +1009,7 @@ MU_TEST_SUITE(test_strnstr_to_find_aro_em_amora_should_return_NULL)
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
-MU_TEST_SUITE(test_strnstr_if_little_is_empty_string_return_big)
+MU_TEST(test_strnstr_if_little_is_empty_string_return_big)
 {
 	//ARRANGE
 	char		big[] = "amora";
@@ -1189,7 +1025,7 @@ MU_TEST_SUITE(test_strnstr_if_little_is_empty_string_return_big)
 	mu_assert(expected_result == actual_result, "expected_result should be point to amora first position");
 }
 
-MU_TEST_SUITE(test_strnstr_finding_orabolas_in_amora_but_len_3_should_return_pointer_to_ora_in_amora)
+MU_TEST(test_strnstr_finding_orabolas_in_amora_but_len_3_should_return_pointer_to_ora_in_amora)
 {
 	//ARRANGE
 	char		big[] = "amora";
@@ -1205,7 +1041,7 @@ MU_TEST_SUITE(test_strnstr_finding_orabolas_in_amora_but_len_3_should_return_poi
 	mu_assert(expected_result == actual_result, "expected_result should point to ora position in amora");
 }
 
-MU_TEST_SUITE(test_strnstr_finding_ora_in_amora_but_len_0_should_return_NULL)
+MU_TEST(test_strnstr_finding_ora_in_amora_but_len_0_should_return_NULL)
 {
 	//ARRANGE
 	char		big[] = "amora";
@@ -1221,7 +1057,7 @@ MU_TEST_SUITE(test_strnstr_finding_ora_in_amora_but_len_0_should_return_NULL)
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
-MU_TEST_SUITE(test_strnstr_finding_ora_in_amora_but_len_50_should_return_pointer_to_ora_in_amora)
+MU_TEST(test_strnstr_finding_ora_in_amora_but_len_50_should_return_pointer_to_ora_in_amora)
 {
 	//ARRANGE
 	char		big[] = "amora";
@@ -1237,7 +1073,7 @@ MU_TEST_SUITE(test_strnstr_finding_ora_in_amora_but_len_50_should_return_pointer
 	mu_assert(expected_result == actual_result, "expected_result should point to ora position in amora");
 }
 
-MU_TEST_SUITE(test_strnstr_finding_orabolas_in_amora_but_len_50_should_return_NULL)
+MU_TEST(test_strnstr_finding_orabolas_in_amora_but_len_50_should_return_NULL)
 {
 	//ARRANGE
 	char		big[] = "amora";
@@ -1253,7 +1089,7 @@ MU_TEST_SUITE(test_strnstr_finding_orabolas_in_amora_but_len_50_should_return_NU
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
-MU_TEST_SUITE(test_strrchr_look_up_non_existing_character_in_string_should_return_NULL)
+MU_TEST(test_strrchr_look_up_non_existing_character_in_string_should_return_NULL)
 {
 	//ARRANGE
 	const char	string[] = "banana";
@@ -1268,7 +1104,7 @@ MU_TEST_SUITE(test_strrchr_look_up_non_existing_character_in_string_should_retur
 	mu_check(expected_result == actual_result);
 }
 
-MU_TEST_SUITE(test_strrchr_look_up_existing_character_in_string_should_return_its_address)
+MU_TEST(test_strrchr_look_up_existing_character_in_string_should_return_its_address)
 {
 	//ARRANGE
 	char		string[] = "banana";
@@ -1283,7 +1119,7 @@ MU_TEST_SUITE(test_strrchr_look_up_existing_character_in_string_should_return_it
 	mu_assert(expected_result == actual_result, "expected_result content is different from actual_result");
 }
 
-MU_TEST_SUITE(test_strrchr_look_up_null_character_in_string_should_return_the_terminating_zero_address)
+MU_TEST(test_strrchr_look_up_null_character_in_string_should_return_the_terminating_zero_address)
 {
 	//ARRANGE
 	char		string[] = "banana";
@@ -1298,7 +1134,7 @@ MU_TEST_SUITE(test_strrchr_look_up_null_character_in_string_should_return_the_te
 	mu_assert(expected_result == actual_result, "expected_result should point to the terminating '\\0'");
 }
 
-MU_TEST_SUITE(test_strrchr_look_up_character_in_empty_string_should_return_null)
+MU_TEST(test_strrchr_look_up_character_in_empty_string_should_return_null)
 {
 	//ARRANGE
 	char		string[] = "";
@@ -1313,7 +1149,7 @@ MU_TEST_SUITE(test_strrchr_look_up_character_in_empty_string_should_return_null)
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
-MU_TEST_SUITE(test_strrchr_look_up_character_in_null_string_should_return_null)
+MU_TEST(test_strrchr_look_up_character_in_null_string_should_return_null)
 {
 	//ARRANGE
 	char		string[] = "";
@@ -1328,7 +1164,7 @@ MU_TEST_SUITE(test_strrchr_look_up_character_in_null_string_should_return_null)
 	mu_assert(expected_result == actual_result, "expected_result should be NULL");
 }
 
-MU_TEST_SUITE(test_strncmp_comparing_banana_and_banana_size_6_should_return_zero)
+MU_TEST(test_strncmp_comparing_banana_and_banana_size_6_should_return_zero)
 {
 	//ARRANGE
 	char	first_word[] = "banana";
@@ -1344,7 +1180,7 @@ MU_TEST_SUITE(test_strncmp_comparing_banana_and_banana_size_6_should_return_zero
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_7_should_return_minus_one)
+MU_TEST(test_strncmp_comparing_bananaA_and_bananaB_size_7_should_return_minus_one)
 {
 	//ARRANGE
 	char	first_word[] = "bananaA";
@@ -1360,7 +1196,7 @@ MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_7_should_return_mi
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_6_should_return_zero)
+MU_TEST(test_strncmp_comparing_bananaA_and_bananaB_size_6_should_return_zero)
 {
 	//ARRANGE
 	char	first_word[] = "bananaA";
@@ -1376,7 +1212,7 @@ MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_6_should_return_ze
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_0_should_return_zero)
+MU_TEST(test_strncmp_comparing_bananaA_and_bananaB_size_0_should_return_zero)
 {
 	//ARRANGE
 	char	first_word[] = "bananaA";
@@ -1392,7 +1228,7 @@ MU_TEST_SUITE(test_strncmp_comparing_bananaA_and_bananaB_size_0_should_return_ze
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strncmp_comparing_banana_and_banana_with_a_large_size_should_return_zero)
+MU_TEST(test_strncmp_comparing_banana_and_banana_with_a_large_size_should_return_zero)
 {
 	//ARRANGE
 	char	first_word[] = "banana";
@@ -1408,7 +1244,7 @@ MU_TEST_SUITE(test_strncmp_comparing_banana_and_banana_with_a_large_size_should_
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strncmp_comparing_A_and_empty_string_string_size_1_should_return_sixty_five)
+MU_TEST(test_strncmp_comparing_A_and_empty_string_string_size_1_should_return_sixty_five)
 {
 	//ARRANGE
 	char	first_word[] = "A";
@@ -1424,7 +1260,7 @@ MU_TEST_SUITE(test_strncmp_comparing_A_and_empty_string_string_size_1_should_ret
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strncmp_comparing_B_and_A_size_1_should_return_one)
+MU_TEST(test_strncmp_comparing_B_and_A_size_1_should_return_one)
 {
 	//ARRANGE
 	char	first_word[] = "B";
@@ -1440,7 +1276,7 @@ MU_TEST_SUITE(test_strncmp_comparing_B_and_A_size_1_should_return_one)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_A_and_B_should_set_dst_as_AB)
+MU_TEST(test_strlcat_concat_A_and_B_should_set_dst_as_AB)
 {
 	//ARRANGE
 	char	dst[3] = "A\0";
@@ -1456,7 +1292,7 @@ MU_TEST_SUITE(test_strlcat_concat_A_and_B_should_set_dst_as_AB)
 	mu_assert_string_eq(expected_result, dst);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_A_and_B_should_return_2)
+MU_TEST(test_strlcat_concat_A_and_B_should_return_2)
 {
 	//ARRANGE
 	char	dst[3] = "A\0";
@@ -1473,7 +1309,7 @@ MU_TEST_SUITE(test_strlcat_concat_A_and_B_should_return_2)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_AB_and_C_should_set_dst_as_ABC_and_return_3)
+MU_TEST(test_strlcat_concat_AB_and_C_should_set_dst_as_ABC_and_return_3)
 {
 	//ARRANGE
 	char	dst[4] = "AB\0";
@@ -1493,7 +1329,7 @@ MU_TEST_SUITE(test_strlcat_concat_AB_and_C_should_set_dst_as_ABC_and_return_3)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_ABC_and_DEF_size_2_should_keep_dst_as_ABC_and_return_5)
+MU_TEST(test_strlcat_concat_ABC_and_DEF_size_2_should_keep_dst_as_ABC_and_return_5)
 {
 	//ARRANGE
 	char	dst[7] = "ABC\0";
@@ -1513,7 +1349,7 @@ MU_TEST_SUITE(test_strlcat_concat_ABC_and_DEF_size_2_should_keep_dst_as_ABC_and_
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_ABC_and_DE_size_1_should_keep_dst_as_ABC_and_return_3)
+MU_TEST(test_strlcat_concat_ABC_and_DE_size_1_should_keep_dst_as_ABC_and_return_3)
 {
 	//ARRANGE
 	char	dst[6] = "ABC";
@@ -1533,7 +1369,7 @@ MU_TEST_SUITE(test_strlcat_concat_ABC_and_DE_size_1_should_keep_dst_as_ABC_and_r
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_ABC_and_DE_size_10_should_set_dst_as_ABCDE_and_return_5)
+MU_TEST(test_strlcat_concat_ABC_and_DE_size_10_should_set_dst_as_ABCDE_and_return_5)
 {
 	//ARRANGE
 	char	dst[6] = "ABC";
@@ -1553,7 +1389,7 @@ MU_TEST_SUITE(test_strlcat_concat_ABC_and_DE_size_10_should_set_dst_as_ABCDE_and
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_AnullB_and_C_size_5_should_set_dst_as_AC_and_return_2)
+MU_TEST(test_strlcat_concat_AnullB_and_C_size_5_should_set_dst_as_AC_and_return_2)
 {
 	//ARRANGE
 	char	dst[5] = "A\0B";
@@ -1573,7 +1409,7 @@ MU_TEST_SUITE(test_strlcat_concat_AnullB_and_C_size_5_should_set_dst_as_AC_and_r
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_AnullB_and_C_size_15_should_set_dst_as_AC_and_return_2)
+MU_TEST(test_strlcat_concat_AnullB_and_C_size_15_should_set_dst_as_AC_and_return_2)
 {
 	//ARRANGE
 	char	dst[15] = "A\0B";
@@ -1593,7 +1429,7 @@ MU_TEST_SUITE(test_strlcat_concat_AnullB_and_C_size_15_should_set_dst_as_AC_and_
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_AnullCD_and_B_size_15_should_set_dst_as_ABnullD_and_return_2)
+MU_TEST(test_strlcat_concat_AnullCD_and_B_size_15_should_set_dst_as_ABnullD_and_return_2)
 {
 	//ARRANGE
 	char	dst[15] = "A\0CD";
@@ -1616,7 +1452,7 @@ MU_TEST_SUITE(test_strlcat_concat_AnullCD_and_B_size_15_should_set_dst_as_ABnull
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_empty_dst_and_123456789_size_15_should_set_dst_as_123456789_and_return_9)
+MU_TEST(test_strlcat_concat_empty_dst_and_123456789_size_15_should_set_dst_as_123456789_and_return_9)
 {
 	//ARRANGE
 	char	dst[15] = "";
@@ -1636,7 +1472,7 @@ MU_TEST_SUITE(test_strlcat_concat_empty_dst_and_123456789_size_15_should_set_dst
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_strlcat_concat_dst_123_and_empty_src_size_15_should_keep_dst_as_123_and_return_3)
+MU_TEST(test_strlcat_concat_dst_123_and_empty_src_size_15_should_keep_dst_as_123_and_return_3)
 {
 	//ARRANGE
 	char	dst[15] = "123";
@@ -1656,7 +1492,7 @@ MU_TEST_SUITE(test_strlcat_concat_dst_123_and_empty_src_size_15_should_keep_dst_
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_putchar_fd_entering_A_in_empty_file)
+MU_TEST(test_putchar_fd_entering_A_in_empty_file)
 {
 	//ARRANGE
 	char	c = 'A';
@@ -1677,7 +1513,7 @@ MU_TEST_SUITE(test_putchar_fd_entering_A_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_putstr_fd_entering_AB_in_empty_file)
+MU_TEST(test_putstr_fd_entering_AB_in_empty_file)
 {
 	//ARRANGE
 	char	s[3] = "AB";
@@ -1703,7 +1539,7 @@ MU_TEST_SUITE(test_putstr_fd_entering_AB_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_putend1_fd_entering_AB_in_empty_file)
+MU_TEST(test_putend1_fd_entering_AB_in_empty_file)
 {
 	//ARRANGE
 	char	s[3] = "AB";
@@ -1731,7 +1567,7 @@ MU_TEST_SUITE(test_putend1_fd_entering_AB_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_putnbr_fd_entering_42_in_empty_file)
+MU_TEST(test_putnbr_fd_entering_42_in_empty_file)
 {
 	//ARRANGE
 	int		n = 42;
@@ -1757,7 +1593,7 @@ MU_TEST_SUITE(test_putnbr_fd_entering_42_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_putnbr_fd_entering_minus42_in_empty_file)
+MU_TEST(test_putnbr_fd_entering_minus42_in_empty_file)
 {
 	//ARRANGE
 	int		n = -42;
@@ -1785,7 +1621,7 @@ MU_TEST_SUITE(test_putnbr_fd_entering_minus42_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_putnbr_fd_entering_MAX_INT_in_empty_file)
+MU_TEST(test_putnbr_fd_entering_MAX_INT_in_empty_file)
 {
 	//ARRANGE
 	int		n = 2147483647;
@@ -1810,7 +1646,7 @@ MU_TEST_SUITE(test_putnbr_fd_entering_MAX_INT_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_putnbr_fd_entering_MIN_INT_in_empty_file)
+MU_TEST(test_putnbr_fd_entering_MIN_INT_in_empty_file)
 {
 	//ARRANGE
 	int		n = -2147483648;
@@ -1835,7 +1671,7 @@ MU_TEST_SUITE(test_putnbr_fd_entering_MIN_INT_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_putnbr_fd_entering_0_in_empty_file)
+MU_TEST(test_putnbr_fd_entering_0_in_empty_file)
 {
 	//ARRANGE
 	int		n = 0;
@@ -1859,7 +1695,7 @@ MU_TEST_SUITE(test_putnbr_fd_entering_0_in_empty_file)
 	remove("test.txt");
 }
 
-MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_1_should_return_A)
+MU_TEST(test_substr_entering_ABCDE_start_1_len_1_should_return_A)
 {
 	//ARRANGE
 	char				s[] = "ABCDE";
@@ -1876,7 +1712,7 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_1_should_return_A)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_1_should_return_B)
+MU_TEST(test_substr_entering_ABCDE_start_1_len_1_should_return_B)
 {
 	//ARRANGE
 	char				s[] = "ABCDE";
@@ -1893,7 +1729,7 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_1_should_return_B)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_3_should_return_BCD)
+MU_TEST(test_substr_entering_ABCDE_start_1_len_3_should_return_BCD)
 {
 	//ARRANGE
 	char				s[] = "ABCDE";
@@ -1910,7 +1746,7 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_3_should_return_BCD)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_8_should_return_BCDE)
+MU_TEST(test_substr_entering_ABCDE_start_1_len_8_should_return_BCDE)
 {
 	//ARRANGE
 	char				s[] = "ABCDE";
@@ -1927,7 +1763,7 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_8_should_return_BCDE)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_0_should_return_NULL)
+MU_TEST(test_substr_entering_ABCDE_start_1_len_0_should_return_NULL)
 {
 	//ARRANGE
 	char				s[] = "ABCDE";
@@ -1942,7 +1778,7 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_1_len_0_should_return_NULL)
 	mu_assert(actual_result == NULL, "The result should be NULL");
 }
 
-MU_TEST_SUITE(test_substr_entering_ABCDE_start_0_len_3_should_return_ABC)
+MU_TEST(test_substr_entering_ABCDE_start_0_len_3_should_return_ABC)
 {
 	//ARRANGE
 	char				s[] = "ABCDE";
@@ -1959,7 +1795,7 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_0_len_3_should_return_ABC)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_substr_entering_empty_string_start_0_len_3_should_return_NULL)
+MU_TEST(test_substr_entering_empty_string_start_0_len_3_should_return_NULL)
 {
 	//ARRANGE
 	char				s[] = "";
@@ -1974,7 +1810,7 @@ MU_TEST_SUITE(test_substr_entering_empty_string_start_0_len_3_should_return_NULL
 	mu_assert(actual_result == NULL, "The result should be NULL");
 }
 
-MU_TEST_SUITE(test_substr_entering_ABCDE_start_5_len_1_should_return_NULL)
+MU_TEST(test_substr_entering_ABCDE_start_5_len_1_should_return_NULL)
 {
 	//ARRANGE
 	char				s[] = "ABCDE";
@@ -1989,7 +1825,7 @@ MU_TEST_SUITE(test_substr_entering_ABCDE_start_5_len_1_should_return_NULL)
 	mu_assert(actual_result == NULL, "The result should be NULL");
 }
 
-MU_TEST_SUITE(test_strjoin_entering_A_and_B_should_return_AB)
+MU_TEST(test_strjoin_entering_A_and_B_should_return_AB)
 {
 	//ARRANGE
 	char	s1[] = "A";
@@ -2005,7 +1841,7 @@ MU_TEST_SUITE(test_strjoin_entering_A_and_B_should_return_AB)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strjoin_entering_AB_and_CD_should_return_ABCD)
+MU_TEST(test_strjoin_entering_AB_and_CD_should_return_ABCD)
 {
 	//ARRANGE
 	char	s1[] = "AB";
@@ -2021,7 +1857,7 @@ MU_TEST_SUITE(test_strjoin_entering_AB_and_CD_should_return_ABCD)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strjoin_entering_ABC_and_DEF_should_return_ABCDEF)
+MU_TEST(test_strjoin_entering_ABC_and_DEF_should_return_ABCDEF)
 {
 	//ARRANGE
 	char	s1[] = "ABC";
@@ -2037,7 +1873,7 @@ MU_TEST_SUITE(test_strjoin_entering_ABC_and_DEF_should_return_ABCDEF)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strjoin_entering_LULA_and_LIVRE_should_return_LULALIVRE)
+MU_TEST(test_strjoin_entering_LULA_and_LIVRE_should_return_LULALIVRE)
 {
 	//ARRANGE
 	char	s1[] = "LULA";
@@ -2053,7 +1889,7 @@ MU_TEST_SUITE(test_strjoin_entering_LULA_and_LIVRE_should_return_LULALIVRE)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strjoin_entering_empty_string_and_X_should_return_X)
+MU_TEST(test_strjoin_entering_empty_string_and_X_should_return_X)
 {
 	//ARRANGE
 	char	s1[] = "";
@@ -2069,7 +1905,7 @@ MU_TEST_SUITE(test_strjoin_entering_empty_string_and_X_should_return_X)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strjoin_entering_X_and_empty_string_should_return_X)
+MU_TEST(test_strjoin_entering_X_and_empty_string_should_return_X)
 {
 	//ARRANGE
 	char	s1[] = "X";
@@ -2085,7 +1921,7 @@ MU_TEST_SUITE(test_strjoin_entering_X_and_empty_string_should_return_X)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strjoin_entering_empty_string_and_empty_string_should_return_empty_string)
+MU_TEST(test_strjoin_entering_empty_string_and_empty_string_should_return_empty_string)
 {
 	//ARRANGE
 	char	s1[] = "";
@@ -2101,7 +1937,7 @@ MU_TEST_SUITE(test_strjoin_entering_empty_string_and_empty_string_should_return_
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strdup_passing_one_letter_string)
+MU_TEST(test_strdup_passing_one_letter_string)
 {
 	//ARRANGE
 	char	s[] = "A";
@@ -2117,7 +1953,7 @@ MU_TEST_SUITE(test_strdup_passing_one_letter_string)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strdup_passing_ten_letters_string)
+MU_TEST(test_strdup_passing_ten_letters_string)
 {
 	//ARRANGE
 	char	s[] = "1234567890";
@@ -2133,7 +1969,7 @@ MU_TEST_SUITE(test_strdup_passing_ten_letters_string)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strdup_passing_empty_string)
+MU_TEST(test_strdup_passing_empty_string)
 {
 	//ARRANGE
 	char	s[] = "";
@@ -2149,7 +1985,7 @@ MU_TEST_SUITE(test_strdup_passing_empty_string)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strdup_passing_null_string)
+MU_TEST(test_strdup_passing_null_string)
 {
 	//ARRANGE
 	char	*s = NULL;
@@ -2168,7 +2004,7 @@ void	support_function_plus_one(unsigned int index, char *s)
 	s[index]++;
 }
 
-MU_TEST_SUITE(test_striteri_passing_a_and_plus_one_function_should_change_it_to_b)
+MU_TEST(test_striteri_passing_a_and_plus_one_function_should_change_it_to_b)
 {
 	//ARRANGE
 	char	s[] = "a";
@@ -2181,7 +2017,7 @@ MU_TEST_SUITE(test_striteri_passing_a_and_plus_one_function_should_change_it_to_
 	mu_assert_string_eq(expected_result, s);
 }
 
-MU_TEST_SUITE(test_striteri_passing_abc_and_plus_one_function_should_change_it_to_bcd)
+MU_TEST(test_striteri_passing_abc_and_plus_one_function_should_change_it_to_bcd)
 {
 	//ARRANGE
 	char	s[] = "abc";
@@ -2194,7 +2030,7 @@ MU_TEST_SUITE(test_striteri_passing_abc_and_plus_one_function_should_change_it_t
 	mu_assert_string_eq(expected_result, s);
 }
 
-MU_TEST_SUITE(test_striteri_passing_empty_string_and_plus_one_function_should_not_change_it)
+MU_TEST(test_striteri_passing_empty_string_and_plus_one_function_should_not_change_it)
 {
 	//ARRANGE
 	char	s[] = "";
@@ -2207,7 +2043,7 @@ MU_TEST_SUITE(test_striteri_passing_empty_string_and_plus_one_function_should_no
 	mu_assert_string_eq(expected_result, s);
 }
 
-MU_TEST_SUITE(test_striteri_passing_abc_and_null_should_do_nothing)
+MU_TEST(test_striteri_passing_abc_and_null_should_do_nothing)
 {
 	//ARRANGE
 	char	s[] = "abc";
@@ -2220,7 +2056,7 @@ MU_TEST_SUITE(test_striteri_passing_abc_and_null_should_do_nothing)
 	mu_assert_string_eq(expected_result, s);
 }
 
-MU_TEST_SUITE(test_striteri_passing_null_and_plus_one_function_should_do_nothing)
+MU_TEST(test_striteri_passing_null_and_plus_one_function_should_do_nothing)
 {
 	//ARRANGE
 	char	*s = NULL;
@@ -2233,7 +2069,7 @@ MU_TEST_SUITE(test_striteri_passing_null_and_plus_one_function_should_do_nothing
 	mu_assert_string_eq(expected_result, s);
 }
 
-MU_TEST_SUITE(test_calloc_allocating_1_byte_char)
+MU_TEST(test_calloc_allocating_1_byte_char)
 {
 	//ARRANGE
 	size_t	count = 1;
@@ -2249,7 +2085,7 @@ MU_TEST_SUITE(test_calloc_allocating_1_byte_char)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_calloc_allocating_100000_bytes_char)
+MU_TEST(test_calloc_allocating_100000_bytes_char)
 {
 	//ARRANGE
 	size_t	count = 100000;
@@ -2266,7 +2102,7 @@ MU_TEST_SUITE(test_calloc_allocating_100000_bytes_char)
 }
 
 //TODO: FIND A WAY TO SEE THIS TEST FAILING :'( #NOTFAIL
-MU_TEST_SUITE(test_calloc_allocating_more_than_size_t_max_should_return_null)
+MU_TEST(test_calloc_allocating_more_than_size_t_max_should_return_null)
 {
 	//ARRANGE
 	
@@ -2285,7 +2121,7 @@ MU_TEST_SUITE(test_calloc_allocating_more_than_size_t_max_should_return_null)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_memchr_searching_l_in_lula_returns_the_first_letter_pointer)
+MU_TEST(test_memchr_searching_l_in_lula_returns_the_first_letter_pointer)
 {
 	//ARRANGE
 	char	word[] = "lula";
@@ -2301,7 +2137,7 @@ MU_TEST_SUITE(test_memchr_searching_l_in_lula_returns_the_first_letter_pointer)
 	mu_assert(expected_result == actual_result, "the returned memory position is not the expected one");
 }
 
-MU_TEST_SUITE(test_memchr_searching_u_in_lula_returns_the_second_letter_pointer)
+MU_TEST(test_memchr_searching_u_in_lula_returns_the_second_letter_pointer)
 {
 	//ARRANGE
 	char	word[] = "lula";
@@ -2317,7 +2153,7 @@ MU_TEST_SUITE(test_memchr_searching_u_in_lula_returns_the_second_letter_pointer)
 	mu_assert(expected_result == actual_result, "the returned memory position is not the expected one");
 }
 
-MU_TEST_SUITE(test_memcmp_comparing_lula_and_lula_returns_0)
+MU_TEST(test_memcmp_comparing_lula_and_lula_returns_0)
 {
 	//ARRANGE
 	char	word1[] = "lula";
@@ -2333,7 +2169,7 @@ MU_TEST_SUITE(test_memcmp_comparing_lula_and_lula_returns_0)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_memcmp_comparing_lula_and_lulu_returns_minus_1)
+MU_TEST(test_memcmp_comparing_lula_and_lulu_returns_minus_1)
 {
 	//ARRANGE
 	char	word1[] = "lula";
@@ -2349,7 +2185,7 @@ MU_TEST_SUITE(test_memcmp_comparing_lula_and_lulu_returns_minus_1)
 	mu_assert_int_eq(expected_result, actual_result);
 }
 
-MU_TEST_SUITE(test_memcmp_comparing_lulu_and_lula_returns_1)
+MU_TEST(test_memcmp_comparing_lulu_and_lula_returns_1)
 {
 	//ARRANGE
 	char	word1[] = "lulu";
@@ -2373,7 +2209,7 @@ char	support_function_char_plus_one(unsigned int index, char s)
 	return plus_one;
 }
 
-MU_TEST_SUITE(test_strmapi_passing_a_and_plus_one_function_should_change_it_to_b)
+MU_TEST(test_strmapi_passing_a_and_plus_one_function_should_change_it_to_b)
 {
 	//ARRANGE
 	char	s[] = "a";
@@ -2388,7 +2224,7 @@ MU_TEST_SUITE(test_strmapi_passing_a_and_plus_one_function_should_change_it_to_b
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strmapi_passing_abc_and_plus_one_function_should_change_it_to_bcd)
+MU_TEST(test_strmapi_passing_abc_and_plus_one_function_should_change_it_to_bcd)
 {
 	//ARRANGE
 	char	s[] = "abc";
@@ -2403,7 +2239,7 @@ MU_TEST_SUITE(test_strmapi_passing_abc_and_plus_one_function_should_change_it_to
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strmapi_passing_empty_string_and_plus_one_function_should_return_NULL)
+MU_TEST(test_strmapi_passing_empty_string_and_plus_one_function_should_return_NULL)
 {
 	//ARRANGE
 	char	s[] = "";
@@ -2418,7 +2254,7 @@ MU_TEST_SUITE(test_strmapi_passing_empty_string_and_plus_one_function_should_ret
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strmapi_passing_abc_and_null_should_return_NULL)
+MU_TEST(test_strmapi_passing_abc_and_null_should_return_NULL)
 {
 	//ARRANGE
 	char	s[] = "abc";
@@ -2433,7 +2269,7 @@ MU_TEST_SUITE(test_strmapi_passing_abc_and_null_should_return_NULL)
 	free(actual_result);
 }
 
-MU_TEST_SUITE(test_strmapi_passing_null_and_plus_one_function_should_return_NULL)
+MU_TEST(test_strmapi_passing_null_and_plus_one_function_should_return_NULL)
 {
 	//ARRANGE
 	char	*s = NULL;
@@ -2461,18 +2297,6 @@ MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_isalnum_receiving_asterisc_returns_false);
 	MU_RUN_TEST(test_isalnum_receiving_1_returns_true);
 
-	MU_RUN_TEST(test_strlcpy_entering_mochida_rapdos_0_do_not_modify_dst_and_returns_6);
-	MU_RUN_TEST(test_strlcpy_entering_lu_la_minus_1_set_dst_as_la_and_returns_2);
-	MU_RUN_TEST(test_strlcpy_entering_papelada_boiada_9_keep_dst7_as_a);
-	MU_RUN_TEST(test_strlcpy_entering_ah_boi_3_set_dst_as_bo_and_returns_3);
-	MU_RUN_TEST(test_strlcpy_entering_ah_oi_3_set_dst_as_oi_and_returns_2);
-	MU_RUN_TEST(test_strlcpy_entering_ai_oi_2_set_dst_as_o_and_returns_2);
-
-	MU_RUN_TEST(test_memset_setting_NUL_in_one_mem_position);
-	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions);
-	MU_RUN_TEST(test_memset_setting_NUL_in_two_mem_positions_should_return_the_original_pointer);
-	MU_RUN_TEST(test_memset_setting_1_in_two_mem_positions);
-	
 	MU_RUN_TEST(test_toupper_entry_x_returns_X);
 	MU_RUN_TEST(test_toupper_entry_a_returns_A);
 	MU_RUN_TEST(test_toupper_entry_A_returns_A);
@@ -2634,6 +2458,8 @@ MU_TEST_SUITE(test_suite) {
 
 int main() {
 	MU_RUN_SUITE(test_suite);
+	MU_RUN_SUITE(ft_memset_test_suite);
+	MU_RUN_SUITE(ft_strlcpy_test_suite);
 	MU_REPORT();
 	return MU_EXIT_CODE;
 }

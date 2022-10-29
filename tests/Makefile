@@ -3,11 +3,10 @@ TESTPROGRAM = libft.tests
 SRCDIR		= ../src/
 NAME		= libft.a
 OBJS		= ${SRCS:.c=.o}
-CFLAGS		= -Wall -Wextra -Werror
 
 test:		fclean
 			make -C ../src
-			@cc ${CFLAGS} -o ${TESTPROGRAM} -I . -I ${SRCDIR} ${TESTFILE} -L${SRCDIR} -lft
+			@cc -o ${TESTPROGRAM} -I . -I ${SRCDIR} ${TESTFILE} -L${SRCDIR} -lft
 			@./${TESTPROGRAM}
 
 leakfull:	test
