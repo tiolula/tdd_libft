@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 23:37:42 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/10/29 12:59:17 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:10:44 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,5 @@ void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strtrim(char const *s1, char const *set);
 #endif
