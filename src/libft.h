@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 23:37:42 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/10/28 20:05:20 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/10/28 20:37:43 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 #endif
