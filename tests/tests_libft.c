@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:56:31 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/10/29 19:45:56 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/10/29 19:53:01 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2459,6 +2459,7 @@ MU_TEST_SUITE(test_suite) {
 int main() {
 	MU_RUN_SUITE(test_suite);
 	MU_RUN_SUITE(ft_memset_test_suite);
+	MU_RUN_SUITE(ft_strtrim_test_suite);
 	MU_RUN_SUITE(ft_strlcpy_test_suite);
 	MU_REPORT();
 	return MU_EXIT_CODE;
