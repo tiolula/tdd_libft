@@ -6,13 +6,11 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:56:31 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/10/29 21:00:06 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/10/29 21:14:19 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <fcntl.h>
-#include <sys/stat.h>
 #include "minunit.h"
 
 #include "libft.h"
