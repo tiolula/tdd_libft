@@ -6,7 +6,7 @@
 /*   By: lphelipe <lphelipe@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/29 12:56:31 by lphelipe          #+#    #+#             */
-/*   Updated: 2022/10/29 21:14:19 by lphelipe         ###   ########.fr       */
+/*   Updated: 2022/11/03 18:38:25 by lphelipe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@
 #include "tests_ft_atoi.c"
 #include "tests_ft_calloc.c"
 #include "tests_ft_strdup.c"
-
 #include "tests_ft_substr.c"
 #include "tests_ft_strjoin.c"
 #include "tests_ft_strtrim.c"
-//#include "tests_ft_split.c"
+#include "tests_ft_split.c"
 #include "tests_ft_itoa.c"
 #include "tests_ft_strmapi.c"
 #include "tests_ft_striteri.c"
@@ -52,6 +51,7 @@
 #include "tests_ft_putnbr_fd.c"
 
 int main() {
+	
 	MU_RUN_SUITE(ft_isalpha_test_suite);
 	MU_RUN_SUITE(ft_isdigit_test_suite);
 	MU_RUN_SUITE(ft_isalnum_test_suite);
@@ -73,14 +73,12 @@ int main() {
 	MU_RUN_SUITE(ft_memcmp_test_suite);
 	MU_RUN_SUITE(ft_strnstr_test_suite);
 	MU_RUN_SUITE(ft_atoi_test_suite);
-
 	MU_RUN_SUITE(ft_calloc_test_suite);
 	MU_RUN_SUITE(ft_strdup_test_suite);
-
 	MU_RUN_SUITE(ft_substr_test_suite);
 	MU_RUN_SUITE(ft_strjoin_test_suite);
 	MU_RUN_SUITE(ft_strtrim_test_suite);
-	//MU_RUN_SUITE(ft_strplit_test_suite);
+	MU_RUN_SUITE(ft_split_test_suite);
 	MU_RUN_SUITE(ft_itoa_test_suite);
 	MU_RUN_SUITE(ft_strmapi_test_suite);
 	MU_RUN_SUITE(ft_striteri_test_suite);

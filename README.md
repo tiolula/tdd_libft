@@ -47,7 +47,7 @@ So [libft](https://github.com/tiolula/tdd_libft/blob/master/src/libft.h) is my o
 	* [ft_substr](https://github.com/tiolula/tdd_libft/blob/master/src/ft_substr.c)
 	* [ft_strjoin](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strjoin.c)
 	* [ft_strtrim](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strtrim.c)
-	* ft_split [TODO] 🔥
+	* ft_split [WIP] 🔥
 	* [ft_itoa](https://github.com/tiolula/tdd_libft/blob/master/src/ft_itoa.c)
 	* [ft_strmapi](https://github.com/tiolula/tdd_libft/blob/master/src/ft_strmapi.c)
 	* [ft_striteri](https://github.com/tiolula/tdd_libft/blob/master/src/ft_striteri.c)
