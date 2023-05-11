@@ -58,8 +58,33 @@ MU_TEST(test_split_passing_a2b2c_using_2_as_delimiter_returns_an_array_with_a_b_
 	free(actual_result);
 }
 
+MU_TEST(test_split_passing_eu_sou_assim_using___as_delimiter_returns_an_array_with_eu_sou_assim_null)
+{
+	//ARRANGE
+	char	*input = "eu_sou_assim";
+	char	delimiter = '_';
+	char	*expected_result[] = {"eu", "sou", "assim", NULL};
+	char	**actual_result;
+
+	//ACT
+	actual_result = ft_split(input, delimiter);
+
+	//ASSERT
+	mu_assert_string_eq(expected_result[0], actual_result[0]);
+	mu_assert_string_eq(expected_result[1], actual_result[1]);
+	mu_assert_string_eq(expected_result[2], actual_result[2]);
+	mu_assert(expected_result[3] == actual_result[3], "ERROOU");
+
+	free(actual_result[0]);
+	free(actual_result[1]);
+	free(actual_result[2]);
+	free(actual_result[3]);
+	free(actual_result);
+}
+
 MU_TEST_SUITE(ft_split_test_suite) 
 {
 	MU_RUN_TEST(test_split_passing_a1b1c_using_1_as_delimiter_returns_an_array_with_a_b_c_NULL);
 	MU_RUN_TEST(test_split_passing_a2b2c_using_2_as_delimiter_returns_an_array_with_a_b_c_NULL);
+	MU_RUN_TEST(test_split_passing_eu_sou_assim_using___as_delimiter_returns_an_array_with_eu_sou_assim_null);
 }
