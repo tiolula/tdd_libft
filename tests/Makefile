@@ -10,7 +10,7 @@ test:		fclean
 			@./${TESTPROGRAM}
 
 leakfull:	test
-			valgrind -s --track-origins=yes --error-exitcode=42 --leak-check=full ./${TESTPROGRAM}
+			valgrind --track-origins=yes --error-exitcode=42 --leak-check=full ./${TESTPROGRAM}
 
 clean:		
 			rm -f ${OBJS}
