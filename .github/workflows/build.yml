@@ -3,9 +3,11 @@ name: build
 on:
   push:
     branches:
-    - master
+      - master
+  workflow_dispatch:
+
 jobs:
-   build:
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -14,4 +16,3 @@ jobs:
       - uses: actions/checkout@v2
       - name: make
         run: make
-        
